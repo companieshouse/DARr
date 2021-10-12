@@ -1,1 +1,1 @@
-Prototype for DAR Reproducible Analytical Pipelines
+Prototype for DAR Reproducible Analytical Pipelines.
