@@ -1,4 +1,4 @@
 library(testthat)
-library(overdueAccs)
+library(DARr)
 
-test_check("overdueAccs")
+test_check("DARr")

@@ -1,4 +1,4 @@
-context('Test that overdueAccs functions work correctly')
+context('Test that DARr functions work correctly')
 
 test_that("Multiply two numbers in my_function", {
   expect_equal(my_function(4,5), 20)

@@ -1,5 +1,5 @@
 Package: DARr
-Title: Practice RAP package for Companies House
+Title: Prototype RAP package for Companies House
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Rob",
