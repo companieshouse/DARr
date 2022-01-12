@@ -4,4 +4,4 @@
 Prototype for DAR Reproducible Analytical Pipelines (RAP) -
 Data Quality Dashboard
 
-Main R Learning Branch
+Main R Learning Branch - see the training folder for more info
