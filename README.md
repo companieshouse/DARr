@@ -4,4 +4,4 @@
 Prototype for DAR Reproducible Analytical Pipelines (RAP) -
 Data Quality Dashboard
 
-R Training for DAR
+R Training for DAR.
