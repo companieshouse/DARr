@@ -5,7 +5,7 @@ NULL
 #'
 #' @name example_data
 #' @docType data
-#' @author Rob Eva \email{robeva5921@@gmail.com}
+#' @author Rob Eva \email{****@gmail.com}
 #' @references \url{data_blah.com}
 #' @keywords data
 NULL
