@@ -1,9 +1,9 @@
 ---
-title: "Haven Data Profiling"
+title: "FunModelling"
 author: "Rob Eva"
-date: '2022-03-23'
+date: "`r Sys.Date()`"
 output: word_document
-
+---
 
 ```{r initialise, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -84,4 +84,3 @@ freq(my_test, input = c('RegAddress.Country','CompanyCategory', 'CompanyStatus',
 plotar(my_test, target = 'CompanyStatus', plot_type = "histdens")
 
 ```
-
