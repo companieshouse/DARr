@@ -4,4 +4,4 @@
 Prototype for DAR Reproducible Analytical Pipelines (RAP) -
 Data Quality Dashboard
 
-This branch of DAR-r required the R Markdown package Govdown.
+This branch of DAR-r requires the R Markdown package Govdown.

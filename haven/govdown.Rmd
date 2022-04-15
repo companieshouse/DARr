@@ -50,26 +50,26 @@ Sometimes you may need to use different methods to collect data from different s
 
 For example, in order to lower the cost and difficulty of your study, you may want to sample urban subjects by going door-to-door, but rural subjects using mail.
 
-```{r}
+```{r initialise, include=TRUE, message=FALSE, warning=FALSE}
+
 # Make a dataframe with 600 data points using stratified sampling
 
 library(dplyr)
 library(tidyverse)
 
 # Declare some Parameters
-sam_n = 60.0
+sam_n = 600
 
 # Make this example reproducible
 set.seed(1)
 
 # Create the spend figures per group
-s1 <- abs(rnorm(150, mean=35, sd=5))
-s2 <- abs(rnorm(150, mean=30, sd=5))
-s3 <- abs(rnorm(150, mean=20, sd=5))
-s4 <- abs(rnorm(150, mean=15, sd=5))
+s1 <- abs(rnorm(1500, mean=75, sd=5))
+s2 <- abs(rnorm(1500, mean=50, sd=5))
+s3 <- abs(rnorm(1500, mean=30, sd=5))
+s4 <- abs(rnorm(1500, mean=15, sd=5))
 
 spend = c(s1, s2, s3, s4)
-spend
 
 #create data frame
 df <- data.frame(group = rep(c('LH C', 'LH FO', 'SH C', 'SH FO'), each=150),
@@ -88,17 +88,13 @@ ggplot(data = df, aes(x = spend)) +
 
 # Create a sampling function
 sampling_function <- function(df_name) {
-  
   samID <- sample(df_name$ID, size = sam_n)
-  # print("hello from your function")
   sam <- filter(df_name, ID %in% samID)
-  print(sam)
   return (sam)
 }
 
 # Get a test sample
 sam <- sampling_function(df)
-sam
 
 # Get the confidence inteval for 95% manually
 sam_mean = mean(sam$spend)
@@ -123,7 +119,7 @@ ggplot(data = sam, aes(x = spend)) +
 
 # Generate a Sampling Distribution in R
 # Define number of samples
-n = 5000
+n = 250
 
 # Create empty vector of length n
 sample_means = rep(NA, n)
@@ -137,7 +133,7 @@ for(i in 1:n){
 head(sample_means)
 
 #create histogram to visualize the sampling distribution
-hist(sample_means, main = "Sampling Distribution", xlab = "Sample Means", col = "steelblue")
+hist(sample_means, main = "Sampling Distribution", xlab = "Sample Means", col = "steelblue", breaks=n/10)
 
 ggplot(mapping = aes(x = sample_means)) +
   geom_histogram(bins=n/10, fill = 'purple')

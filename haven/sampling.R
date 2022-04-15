@@ -70,7 +70,7 @@ ggplot(data = sam, aes(x = spend)) +
 
 # Generate a Sampling Distribution in R
 # Define number of samples
-n = 5000
+n = 50
 
 # Create empty vector of length n
 sample_means = rep(NA, n)
