@@ -81,3 +81,5 @@ freq(my_test)
 
 # Probability Density
 plotar(my_test, target = 'CompanyStatus', plot_type = "histdens")
+
+my_test$CompanyName
