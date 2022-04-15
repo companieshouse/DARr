@@ -70,7 +70,7 @@ ggplot(data = sam, aes(x = spend)) +
 
 # Generate a Sampling Distribution in R
 # Define number of samples
-n = 10
+n = 5000
 
 # Create empty vector of length n
 sample_means = rep(NA, n)
@@ -84,8 +84,12 @@ for(i in 1:n){
 head(sample_means)
 
 #create histogram to visualize the sampling distribution
-hist(sample_means, main = "", xlab = "Sample Means", col = "steelblue")
+hist(sample_means, main = "Sampling Distribution", xlab = "Sample Means", col = "steelblue")
+
+ggplot(mapping = aes(x = sample_means)) +
+  geom_histogram(bins=n/10, fill = 'purple')
 
 summary(sample_means)
 summary(df$spend)
 
+# The more samples there are, the close the two means will be.
