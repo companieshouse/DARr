@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 The Data Quality Project | Companies House Data Quality Strategy</title>
-  <meta name="description" content="2 The Data Quality Project | Companies House Data Quality Strategy" />
+  <title>4 Companies House APIs | Companies House Data Quality Strategy</title>
+  <meta name="description" content="4 Companies House APIs | Companies House Data Quality Strategy" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 The Data Quality Project | Companies House Data Quality Strategy" />
+  <meta property="og:title" content="4 Companies House APIs | Companies House Data Quality Strategy" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 The Data Quality Project | Companies House Data Quality Strategy" />
+  <meta name="twitter:title" content="4 Companies House APIs | Companies House Data Quality Strategy" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="intro.html"/>
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="developer-guidelines-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,24 +133,37 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-data-quality-project" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">2</span> The Data Quality Project<a href="the-data-quality-project.html#the-data-quality-project" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="project-background-problem-statement" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Project Background / Problem Statement<a href="the-data-quality-project.html#project-background-problem-statement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Data is the new currency and fundamental to effective, evidence-based decision-making. It underpins everything from major policy decisions to routine operational processing to external appraisal for a variety of analytical reasons. Often, however, our data is of unknown or questionable quality. This presents huge challenges. Poor or unknown quality data weakens evidence, undermines trust, and ultimately leads to poor outcomes. It makes our organisation less efficient and impedes effective decision-making. To make better decisions, we need better quality data.</p>
-<p>Improved data quality is a claimed benefit in many of the portfolio projects. However, currently there is not a harmonised method to assess this. The data quality framework, assessment and associated automated pipeline will address this gap and provide a consistent toolkit to aid in the quality assessment of data held within Companies House.</p>
-<p>Understanding areas of concern in data quality will aid in interventions to improve the overall integrity of the register. For example, understanding the extent of duplicated addresses, will help us to inform development work to reduce these errors, thereby improving the integrity of the register. Improvements in terms of consistency and duplication will give us more confidence when proactively identifying suspicious activity, meaning we can trust our analysis to be used to inform law enforcement partners and helps to reduce economic crime.</p>
+<div id="companies-house-apis" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Companies House APIs<a href="companies-house-apis.html#companies-house-apis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="companies-house-api-overview" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Companies House API overview<a href="companies-house-apis.html#companies-house-api-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Companies House is an executive agency of the Department for Business Innovation and Skills (BEIS). Our main functions are: to incorporate and dissolve limited companies; examine and store company information delivered under the Companies Act and related legislation; and make this information available to the public.</p>
+<p>The Companies House API lets you retrieve information about limited companies (and other companies that fall within the Companies Act 2006). The data returned is live and real-time, and is simple to use and understand.</p>
 </div>
-<div id="project-objectives" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Project Objectives<a href="the-data-quality-project.html#project-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The main objectives of this project are to deliver the following:</p>
-<ul>
-<li><p>A framework to assess the quality of data within Companies House to enable the organisation to deliver against its strategic goals. This will support the work of the Data Strategy.</p></li>
-<li><p>A baseline measure of data quality across our data estate, identifying areas for improvement and informing the course of the Companies House Strategy. Data set prioritisation will need to be undertaken.</p></li>
-<li><p>An automated data and analytical pipeline that identifies and monitors our data quality levels. A toolkit of methods to actively monitor the impact of projects and business improvement work on overall data quality aligned to the data quality dimensions1</p></li>
-<li><p>An assessment of organisational maturity levels in terms of skills and roles and responsibilities, including development of “training” around the trade-off of quality dimensions to allow effective implementation and take-up.</p></li>
-</ul>
-
+<div id="before-you-start" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Before you start<a href="companies-house-apis.html#before-you-start" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you are new to the Companies House API, take a look at the get started guide, which has resources and information to help you.</p>
+<p>In the Developer Forum, you can also discuss the API, find help and provide feedback.</p>
+</div>
+<div id="register-a-companies-house-user-account" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Register a Companies House user account<a href="companies-house-apis.html#register-a-companies-house-user-account" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You must register a user account with Companies House to explore and perform tests with the Companies House API.</p>
+<p>To get started quickly, each Companies House API reference page contains an embedded explorer to try out the service without having to write any client code.</p>
+</div>
+<div id="about-the-companies-house-api" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> About the Companies House API<a href="companies-house-apis.html#about-the-companies-house-api" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Companies House digitally records almost all the information it receives and makes this available to the public through its website and through the Companies House RESTful API.</p>
+<p>Being RESTful, each record of information is assigned a globally unique URI, and the operations available on each resource are directly mapped to HTTP verbs. Data can be easily consumed by issuing simple GET requests on the required resource URI.</p>
+<p>Read the Companies House REST API overview for more information about our API approach, REST web services and the JSON data format.</p>
+</div>
+<div id="api-authentication" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> API authentication<a href="companies-house-apis.html#api-authentication" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Access to API services requires authentication. The Companies House API requires API authentication credentials to be sent with each request, which is sent as an API key, stream key or OAuth access token.</p>
+<p>Learn how to create an application as well as API keys, stream keys and OAuth web clients.</p>
+</div>
+<div id="developer-guidelines" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Developer guidelines<a href="companies-house-apis.html#developer-guidelines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Read the developer guidelines for information about security, API rate limits and enumerated types as you’re developing your application.</p>
 </div>
 </div>
             </section>
@@ -158,8 +171,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="developer-guidelines-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

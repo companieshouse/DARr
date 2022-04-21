@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 The Data Quality Project | Companies House Data Quality Strategy</title>
-  <meta name="description" content="2 The Data Quality Project | Companies House Data Quality Strategy" />
+  <title>5 Developer guidelines | Companies House Data Quality Strategy</title>
+  <meta name="description" content="5 Developer guidelines | Companies House Data Quality Strategy" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 The Data Quality Project | Companies House Data Quality Strategy" />
+  <meta property="og:title" content="5 Developer guidelines | Companies House Data Quality Strategy" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 The Data Quality Project | Companies House Data Quality Strategy" />
+  <meta name="twitter:title" content="5 Developer guidelines | Companies House Data Quality Strategy" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="intro.html"/>
+<link rel="prev" href="companies-house-apis.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,24 +133,53 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-data-quality-project" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">2</span> The Data Quality Project<a href="the-data-quality-project.html#the-data-quality-project" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="project-background-problem-statement" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Project Background / Problem Statement<a href="the-data-quality-project.html#project-background-problem-statement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Data is the new currency and fundamental to effective, evidence-based decision-making. It underpins everything from major policy decisions to routine operational processing to external appraisal for a variety of analytical reasons. Often, however, our data is of unknown or questionable quality. This presents huge challenges. Poor or unknown quality data weakens evidence, undermines trust, and ultimately leads to poor outcomes. It makes our organisation less efficient and impedes effective decision-making. To make better decisions, we need better quality data.</p>
-<p>Improved data quality is a claimed benefit in many of the portfolio projects. However, currently there is not a harmonised method to assess this. The data quality framework, assessment and associated automated pipeline will address this gap and provide a consistent toolkit to aid in the quality assessment of data held within Companies House.</p>
-<p>Understanding areas of concern in data quality will aid in interventions to improve the overall integrity of the register. For example, understanding the extent of duplicated addresses, will help us to inform development work to reduce these errors, thereby improving the integrity of the register. Improvements in terms of consistency and duplication will give us more confidence when proactively identifying suspicious activity, meaning we can trust our analysis to be used to inform law enforcement partners and helps to reduce economic crime.</p>
+<div id="developer-guidelines-1" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Developer guidelines<a href="developer-guidelines-1.html#developer-guidelines-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="api-rate-limits" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> API rate limits<a href="developer-guidelines-1.html#api-rate-limits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rate limiting is applied to the Companies House API to ensure a high quality service is delivered for all users, and to protect client applications from unexpected loops.</p>
+<p>You can make up to 600 requests within a 5 minute period. If you exceed this limit, you will receive a 429 Too Many Requests HTTP status code for each request made within the rest of the 5 minute time frame. At the end of the period, your rate limit will reset back to 600 requests.</p>
+<p>If you have an application that requires a higher rate limit than this default, contact us.</p>
 </div>
-<div id="project-objectives" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Project Objectives<a href="the-data-quality-project.html#project-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The main objectives of this project are to deliver the following:</p>
-<ul>
-<li><p>A framework to assess the quality of data within Companies House to enable the organisation to deliver against its strategic goals. This will support the work of the Data Strategy.</p></li>
-<li><p>A baseline measure of data quality across our data estate, identifying areas for improvement and informing the course of the Companies House Strategy. Data set prioritisation will need to be undertaken.</p></li>
-<li><p>An automated data and analytical pipeline that identifies and monitors our data quality levels. A toolkit of methods to actively monitor the impact of projects and business improvement work on overall data quality aligned to the data quality dimensions1</p></li>
-<li><p>An assessment of organisational maturity levels in terms of skills and roles and responsibilities, including development of “training” around the trade-off of quality dimensions to allow effective implementation and take-up.</p></li>
-</ul>
+<div id="enumerated-types" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Enumerated types<a href="developer-guidelines-1.html#enumerated-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A majority of the resources returned by the Companies House API contain members that reference enumeration types. This helps the resources to be self-documenting, and allows clients to interpret the meaning of a resource member without needing to parse a text description.</p>
+<p>Enumeration types are used to supplement or replace a text description. This allows clients to display their own version of a description or provide descriptions in multiple languages.</p>
+<p>The collection of enumeration types used by Companies House are available on GitHub. These files provide mapping between enumeration type and text description, and are divided into sets or classes. Each API resource member will define which class of enumeration is being returned.</p>
+<p>A planned enhancement to the enumeration scheme is the provision of API endpoints that will return the enumeration class catalogue. This avoids enumerations having to be hard-coded within a client, and by periodically checking for change through ETags, clients do not have to download the full catalogue.</p>
+</div>
+<div id="data-resources" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Data resources<a href="developer-guidelines-1.html#data-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data is mostly returned as JSON documents. Your application must be able to handle the order of document members changing over time and expect to receive members it has not seen before.</p>
+</div>
+<div id="application-security" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Application security<a href="developer-guidelines-1.html#application-security" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The API can only be accessed over Transport Layer Security (TLS). We recommend using TLS 1.2.</p>
+</div>
+<div id="api-key-security" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> API key security<a href="developer-guidelines-1.html#api-key-security" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is important to keep your API keys secure. This will prevent them from being discovered, your account from being compromised and your rate-limit quota from being exceeded.</p>
+<div id="do-not-embed-api-keys-in-your-code" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Do not embed API keys in your code<a href="developer-guidelines-1.html#do-not-embed-api-keys-in-your-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Storing keys in your application code increases the risk that they will be discovered, particularly if any of your source code is made public or it can be viewed by people who should not have access to the key. Instead, you should consider storing them inside environment variables or configuration.</p>
+</div>
+<div id="do-not-store-api-keys-in-your-source-tree" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Do not store API keys in your source tree<a href="developer-guidelines-1.html#do-not-store-api-keys-in-your-source-tree" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you store API keys in files, for example, configuration or environment files, do not store them inside the application source tree. If all or part of the source is made public, the key may be compromised.</p>
+</div>
+<div id="restrict-api-key-use-by-ip-address-and-domain" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> Restrict API key use by IP address and domain<a href="developer-guidelines-1.html#restrict-api-key-use-by-ip-address-and-domain" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Limit the use of a key to a specific IP address or domain to reduce its usefulness if it becomes compromised.</p>
+</div>
+<div id="regenerate-your-api-keys" class="section level3 hasAnchor" number="5.5.4">
+<h3><span class="header-section-number">5.5.4</span> Regenerate your API keys<a href="developer-guidelines-1.html#regenerate-your-api-keys" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Regenerate your API keys regularly, including with each application release, to reduce the chance that a key will be discovered.</p>
+</div>
+<div id="delete-api-keys-when-no-longer-required" class="section level3 hasAnchor" number="5.5.5">
+<h3><span class="header-section-number">5.5.5</span> Delete API keys when no longer required<a href="developer-guidelines-1.html#delete-api-keys-when-no-longer-required" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Remove unused keys from your registered applications page to limit the number of entry points into your account.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -158,8 +187,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="companies-house-apis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
