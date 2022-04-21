@@ -1,5 +1,6 @@
 fig:unnamed-chunk-1
 fig:api-fig
+fig:json-fig
 fig:nice-fig
 tab:nice-tab
 eq:binom
@@ -11,7 +12,9 @@ the-data-quality-project
 project-background-problem-statement
 project-objectives
 apis
-what-is-an-example-of-an-api
+what-is-an-api
+working-with-json-data-in-python
+bookdown-reference
 about
 usage
 render-book

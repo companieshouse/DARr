@@ -69,13 +69,14 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
 <li><a class="active" href="apis.html"><span class="header-section-number">2</span> APIs</a></li>
-<li><a class="" href="about.html"><span class="header-section-number">3</span> About</a></li>
-<li><a class="" href="hello-bookdown.html"><span class="header-section-number">4</span> Hello bookdown</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">5</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">6</span> Parts</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">7</span> Footnotes and citations</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">8</span> Blocks</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">9</span> Sharing your book</a></li>
+<li><a class="" href="bookdown-reference.html"><span class="header-section-number">3</span> Bookdown Reference</a></li>
+<li><a class="" href="about.html"><span class="header-section-number">4</span> About</a></li>
+<li><a class="" href="hello-bookdown.html"><span class="header-section-number">5</span> Hello bookdown</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">6</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">7</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">8</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">9</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">10</span> Sharing your book</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -95,25 +96,38 @@
 Figure 2.1: How an API call works
 </p>
 </div>
-<div id="what-is-an-example-of-an-api" class="section level2" number="2.1">
+<div id="what-is-an-api" class="section level2" number="2.1">
 <h2>
-<span class="header-section-number">2.1</span> What Is an Example of an API?<a class="anchor" aria-label="anchor" href="#what-is-an-example-of-an-api"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1</span> What is an API?<a class="anchor" aria-label="anchor" href="#what-is-an-api"><i class="fas fa-link"></i></a>
 </h2>
 <p>When you use an application on your mobile phone, the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
 <p>To explain this better, let us take a familiar example.</p>
 <p>Imagine you’re sitting at a table in a restaurant with a menu of choices to order from. The kitchen is the part of the “system” that will prepare your order. What is missing is the critical link to communicate your order to the kitchen and deliver your food back to your table. That’s where the waiter or API comes in. The waiter is the messenger – or API – that takes your request or order and tells the kitchen – the system – what to do. Then the waiter delivers the response back to you; in this case, it is the food.</p>
-<p>Here is a real-life API example. You may be familiar with the process of searching flights online. Just like the restaurant, you have a variety of options to choose from, including different cities, departure and return dates, and more. Let us imagine that you’re booking you are flight on an airline website. You choose a departure city and date, a return city and date, cabin class, as well as other variables. In order to book your flight, you interact with the airline’s website to access their database and see if any seats are available on those dates and what the costs might be.</p>
+</div>
+<div id="working-with-json-data-in-python" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Working with JSON Data in Python<a class="anchor" aria-label="anchor" href="#working-with-json-data-in-python"><i class="fas fa-link"></i></a>
+</h2>
+<p>JSON (JavaScript Object Notation) is the language of APIs. JSON is a way to encode data structures that ensures that they are easily readable by machines. JSON is the primary format in which data is passed back and forth to APIs, and most API servers will send their responses in JSON format.</p>
+<p>You might have noticed that the JSON output we received from the API looked like it contained Python dictionaries, lists, strings and integers. You can think of JSON as being a combination of these objects represented as strings. Let’s look at a simple example:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:json-fig"></span>
+<img src="images/json.svg" alt="Figure showing JSON structure." width="80%"><p class="caption">
+Figure 2.2: JSON Structure
+</p>
+</div>
 
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="index.html"><span class="header-section-number">1</span> Preface</a></div>
-<div class="next"><a href="about.html"><span class="header-section-number">3</span> About</a></div>
+<div class="next"><a href="bookdown-reference.html"><span class="header-section-number">3</span> Bookdown Reference</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#apis"><span class="header-section-number">2</span> APIs</a></li>
-<li><a class="nav-link" href="#what-is-an-example-of-an-api"><span class="header-section-number">2.1</span> What Is an Example of an API?</a></li>
+<li><a class="nav-link" href="#what-is-an-api"><span class="header-section-number">2.1</span> What is an API?</a></li>
+<li><a class="nav-link" href="#working-with-json-data-in-python"><span class="header-section-number">2.2</span> Working with JSON Data in Python</a></li>
 </ul>
 
       <div class="book-extra">
