@@ -1,7 +1,14 @@
+fig:unnamed-chunk-1
 fig:nice-fig
 tab:nice-tab
 eq:binom
 thm:tri
+preface
+making-sure-our-register-benefits-the-public-good-and-wider-economy
+why-do-we-need-a-data-strategy-and-management-framework
+the-data-quality-project
+project-background-problem-statement
+project-objectives
 about
 usage
 render-book
