@@ -10,6 +10,7 @@ if (any(installed_packages == FALSE)) {
 library(dplyr)
 library(tidyr)
 library(stringr)
+library(urltools)
 
 # Get the dataframe from the download directory
 setwd('../data/feedback')
