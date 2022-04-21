@@ -1,4 +1,5 @@
 fig:unnamed-chunk-1
+fig:api-fig
 fig:nice-fig
 tab:nice-tab
 eq:binom
@@ -9,6 +10,8 @@ why-do-we-need-a-data-strategy-and-management-framework
 the-data-quality-project
 project-background-problem-statement
 project-objectives
+apis
+what-is-an-example-of-an-api
 about
 usage
 render-book

@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Page not found | Companies House Data Quality</title>
+<title>Chapter 2 APIs | Companies House Data Quality</title>
 <meta name="author" content="Rob Eva">
-<meta name="description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="description" content="API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an...">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="Page not found | Companies House Data Quality">
+<meta property="og:title" content="Chapter 2 APIs | Companies House Data Quality">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/../images/star2.png">
-<meta property="og:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta property="og:description" content="API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Page not found | Companies House Data Quality">
-<meta name="twitter:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="twitter:title" content="Chapter 2 APIs | Companies House Data Quality">
+<meta name="twitter:description" content="API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an...">
 <meta name="twitter:image" content="/../images/star2.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -68,7 +68,7 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
-<li><a class="" href="apis.html"><span class="header-section-number">2</span> APIs</a></li>
+<li><a class="active" href="apis.html"><span class="header-section-number">2</span> APIs</a></li>
 <li><a class="" href="about.html"><span class="header-section-number">3</span> About</a></li>
 <li><a class="" href="hello-bookdown.html"><span class="header-section-number">4</span> Hello bookdown</a></li>
 <li><a class="" href="cross.html"><span class="header-section-number">5</span> Cross-references</a></li>
@@ -84,18 +84,48 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="page-not-found" class="section level1">
-<h1>Page not found<a class="anchor" aria-label="anchor" href="#page-not-found"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="apis" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> APIs<a class="anchor" aria-label="anchor" href="#apis"><i class="fas fa-link"></i></a>
 </h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<p>API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an instant message, or check the weather on your phone, you’re using an API.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"./images/api-request.svg"</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:api-fig"></span>
+<img src="images/api-request.svg" alt="Figure showing how an API works." width="80%"><p class="caption">
+Figure 2.1: How an API call works
+</p>
+</div>
+<div id="what-is-an-example-of-an-api" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> What Is an Example of an API?<a class="anchor" aria-label="anchor" href="#what-is-an-example-of-an-api"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you use an application on your mobile phone, the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
+<p>To explain this better, let us take a familiar example.</p>
+<p>Imagine you’re sitting at a table in a restaurant with a menu of choices to order from. The kitchen is the part of the “system” that will prepare your order. What is missing is the critical link to communicate your order to the kitchen and deliver your food back to your table. That’s where the waiter or API comes in. The waiter is the messenger – or API – that takes your request or order and tells the kitchen – the system – what to do. Then the waiter delivers the response back to you; in this case, it is the food.</p>
+<p>Here is a real-life API example. You may be familiar with the process of searching flights online. Just like the restaurant, you have a variety of options to choose from, including different cities, departure and return dates, and more. Let us imagine that you’re booking you are flight on an airline website. You choose a departure city and date, a return city and date, cabin class, as well as other variables. In order to book your flight, you interact with the airline’s website to access their database and see if any seats are available on those dates and what the costs might be.</p>
+
+</div>
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="index.html"><span class="header-section-number">1</span> Preface</a></div>
+<div class="next"><a href="about.html"><span class="header-section-number">3</span> About</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    </div>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#apis"><span class="header-section-number">2</span> APIs</a></li>
+<li><a class="nav-link" href="#what-is-an-example-of-an-api"><span class="header-section-number">2.1</span> What Is an Example of an API?</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/05-api.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/05-api.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
 
 </div>
 </div> <!-- .container -->
