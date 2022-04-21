@@ -1,0 +1,147 @@
+---
+output:
+  govdown::govdown_document:
+    font: "sans-serif" # (default) or "new-transport"
+    # favicon: "custom" # or "none" (default) or "govuk" see ?govdown_document
+    logo: "images/logo.png" # or false (default)
+    logo_url: "https://ukgovdatascience.github.io/govdown/"
+    logo_text: "DAR - Data, Analytics and Research"
+    page_title: "R Sampling"
+    title: "Stratified Sampling with R"
+    phase: alpha
+    feedback_url: "https://github.com/ukgovdatascience/govdown/issues"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+In a stratified sample, researchers divide a population into homogeneous subpopulations called strata (the plural of stratum) based on specific characteristics (e.g., race, gender identity, location, etc.). Every member of the population studied should be in exactly one stratum.
+
+Each stratum is then sampled using another probability sampling method, such as cluster or simple random sampling, allowing researchers to estimate statistical measures for each sub-population.
+
+Researchers rely on stratified sampling when a population’s characteristics are diverse and they want to ensure that every characteristic is properly represented in the sample.
+
+## When to use stratified sampling
+
+To use stratified sampling, you need to be able to divide your population into mutually exclusive and exhaustive subgroups. That means every member of the population can be clearly classified into exactly one subgroup.
+
+Stratified sampling is the best choice among the probability sampling methods when you believe that subgroups will have different mean values for the variable(s) you’re studying. It has several potential advantages:
+
+## Ensuring the diversity of your sample
+A stratified sample includes subjects from every subgroup, ensuring that it reflects the diversity of your population. It is theoretically possible (albeit unlikely) that this would not happen when using other sampling methods such as simple random sampling.
+
+## Ensuring similar variance
+If you want the data collected from each subgroup to have a similar level of variance, you need a similar sample size for each subgroup.
+
+With other methods of sampling, you might end up with a low sample size for certain subgroups because they’re less common in the overall population.
+
+## Lowering the overall variance in the population
+Although your overall population can be quite heterogeneous, it may be more homogenous within certain subgroups.
+
+For example, if you are studying how a new schooling program affects the test scores of children, both their original scores and any change in scores will most likely be highly correlated with family income. The scores are likely to be grouped by family income category.
+
+In this case, stratified sampling allows for more precise measures of the variables you wish to study, with lower variance within each subgroup and therefore for the population as a whole.
+
+## Allowing for a variety of data collection methods
+Sometimes you may need to use different methods to collect data from different subgroups.
+
+For example, in order to lower the cost and difficulty of your study, you may want to sample urban subjects by going door-to-door, but rural subjects using mail.
+
+```{r initialise, include=TRUE, message=FALSE, warning=FALSE}
+
+# Make a dataframe with 600 data points using stratified sampling
+
+library(dplyr)
+library(tidyverse)
+
+# Declare some Parameters
+sam_n = 600
+
+# Make this example reproducible
+set.seed(1)
+
+# Create the spend figures per group
+s1 <- abs(rnorm(1500, mean=75, sd=5))
+s2 <- abs(rnorm(1500, mean=50, sd=5))
+s3 <- abs(rnorm(1500, mean=30, sd=5))
+s4 <- abs(rnorm(1500, mean=15, sd=5))
+
+spend = c(s1, s2, s3, s4)
+
+#create data frame
+df <- data.frame(group = rep(c('LH C', 'LH FO', 'SH C', 'SH FO'), each=150),
+                 spend)
+
+df <- tibble::rowid_to_column(df, "ID")
+
+#view first six rows of data frame
+head(df)
+
+# Descriptive Statistics for the whole population
+summary(df)
+df %>% glimpse()
+ggplot(data = df, aes(x = spend)) +
+  geom_histogram(bins=40, fill = 'purple')
+
+# Create a sampling function
+sampling_function <- function(df_name) {
+  samID <- sample(df_name$ID, size = sam_n)
+  sam <- filter(df_name, ID %in% samID)
+  return (sam)
+}
+
+# Get a test sample
+sam <- sampling_function(df)
+
+# Get the confidence inteval for 95% manually
+sam_mean = mean(sam$spend)
+sam_sd = sd(sam$spend)
+standard_error = sam_sd / sqrt(sam_n)
+standard_error
+int_low = sam_mean - (1.96 * standard_error)
+int_high = sam_mean + (1.96 * standard_error)
+print(paste("Mean", sam_mean, " 95% [", int_low, ",", int_high, "]"))
+
+# Get the same inteval using a model
+test <- lm(spend ~ 1, sam)
+summary(test)
+confint(test, level=0.95)
+
+
+# Summary of our sample
+summary(sam)
+sam %>% glimpse()
+ggplot(data = sam, aes(x = spend)) +
+  geom_histogram(bins=15, fill = 'green')
+
+# Generate a Sampling Distribution in R
+# Define number of samples
+n = 250
+
+# Create empty vector of length n
+sample_means = rep(NA, n)
+
+# Fill empty vector with means
+for(i in 1:n){
+  sample_means[i] = c(mean(sampling_function(df)$spend))
+}
+
+# View first six sample means
+head(sample_means)
+
+#create histogram to visualize the sampling distribution
+hist(sample_means, main = "Sampling Distribution", xlab = "Sample Means", col = "steelblue", breaks=n/10)
+
+ggplot(mapping = aes(x = sample_means)) +
+  geom_histogram(bins=n/10, fill = 'purple')
+
+summary(sample_means)
+summary(df$spend)
+
+# The more samples there are, the close the two means will be.
+
+```
+
