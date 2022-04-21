@@ -2,11 +2,6 @@
 
 API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an instant message, or check the weather on your phone, you’re using an API.
 
-
-```r
-knitr::include_graphics("./images/api-request.svg")
-```
-
 <div class="figure" style="text-align: center">
 <img src="./images/api-request.svg" alt="Figure showing how an API works." width="80%" />
 <p class="caption">(\#fig:api-fig)How an API call works</p>
