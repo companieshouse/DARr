@@ -1,0 +1,104 @@
+# Introduction to APIs{#intro}
+
+## What exactly is an API?
+
+If you want to learn about APIs, you’ve come to the right place! API stands for application programming interface. APIs are the little pieces of code that make it possible for digital devices, software applications, and data servers to talk with each other, and they’re the essential backbone of so many services we now rely on.
+
+Digging deeper, an easy way to understand the definition of an API is to think about the applications that you use every day. In an internet-connected world, web and mobile applications are designed for humans to use, while APIs are designed for other digital systems and applications to use. Websites and APIs both do the same things, like return data, content, images, video, and other information. But APIs don’t return all the details that are needed to make things look pretty for the human eye—you only get the raw data and other machine-readable information needed behind the scenes to put the resources being delivered to work, with very little assistance from a human.
+
+## What is API integration?
+
+“API integration” is a pretty common Google Search term, and we have good news. The whole reason APIs exist is to support integration. API integration is simply the connection between two (or more) applications, programs, services, or systems, using APIs. Applications use APIs to send and receive data and content between each other. Keep reading for a history of APIs, what they’re used for, examples, and more.
+
+## History of APIs
+
+Web APIs got their start by putting the “commercial” in “.com,” powering commerce startups looking to change the way we do business on the web. They took advantage of this new medium to make products and services available to customers via a single website, and as they worked with partners, they sought to automate much of the commerce that was powering the web and included juggernauts like Salesforce, eBay, and Amazon. In 2004, a shift in the API landscape began to emerge as a new breed of API providers started to pop up, offering ways to share information with local and global social networks, led by the likes of Facebook and Twitter. With a strong start in commercial and social applications, APIs continued to grow as everything moved to the cloud, became much more mobile, and provided the foundation for next-generation devices. To get the full scoop on the history of APIs, check out this Postman blog post.
+
+## What are APIs used for?
+What are APIs used for? Lots and lots and lots of things, including:
+
+- APIs power desktop applications.
+- APIs are behind most web applications.
+- APIs make mobile applications possible.
+- APIs are the integrations for no code solutions.
+- APIs connect devices to the internet.
+- APIs define the networks—or the information passed between     applications, systems, and devices.
+- APIs even connect everyday things like automobiles, doorbells, dishwashers, and wearable devices.
+
+## Why should you care about APIs?
+
+Curious about why you should care about APIs? Here’s a very brief list:
+
+- APIs help you access the data you need to get your work done and do daily tasks—whether you’re a business user, a student, or using an application just for fun.
+- APIs make it possible to integrate different systems together, like Customer Relationship Management systems, databases, or even school learning management systems.
+- APIs help different departments, teams, and groups become more agile.
+- APIs help organizations, schools, government agencies, and nonprofits strengthen relationships with other organizations, research institutes, and agencies.
+
+## How do APIs work?
+
+APIs work by sharing data and information between applications, systems, and devices—making it possible for these things to talk with each other.
+
+Sometimes the easiest way to think about APIs is to think about a metaphor, and a common scenario that a lot of folks use is that of the customer, a waiter, and a restaurant kitchen: A customer talks to the waiter and tells the waiter what she wants. The waiter takes down the order and communicates it to the kitchen. The kitchen does their work, creating the food, and then the waiter delivers the order back to the customer.
+
+In this metaphor, a customer is like a user, who tells the waiter what she wants. The waiter is like an API, receiving the customer’s order and translating the order into easy-to-follow instructions that the kitchen then uses to fulfill that order—often following a specific set of codes, or input, that the kitchen easily recognizes. The kitchen is like a server that does the work of creating the order in the manner the customer wants it, hopefully! When the food is ready, the waiter picks up the order and delivers it to the customer.
+
+## Why use APIs? Reasons to use APIs
+
+What are the reasons to use APIs? Almost too many to count, but to truly answer this question, we asked thousands of developers and professionals why they choose to produce or consume APIs in our annual State of the API report. Here are their top answers:
+
+- Integration with internal and external systems: One of the top reasons developers use APIs is to integrate one system with another system. For example, if you want your Customer Relationship Management (CRM) system to integrate with your Marketing Automation system, you could use an API to enable the two systems to talk to one another so that you automatically send a marketing email when a sales representative adds a new prospective customer to the CRM.
+
+- Adding or enhancing functionality of internal and external systems: Another common reason that developers use APIs is to add or enhance functionality of internal systems as well as external systems. For example, if you have an internal system that tracks vacation days for managers, you might use an API to allow employees to request days off from their email.
+
+- Adding or enhancing functionality for customers: Sometimes when you add or enhance functionality, it’s about improving customers’ experiences and helping them interact better with your organization. For example, if you worked for a food delivery company, you might use an API to automatically notify customers when their meal is approaching their house.
+
+- Speeding up software and system development: APIs allow developers to code and deliver functionality as microservices, instead of big, monolithic applications. By breaking this functionality up, developers can actually speed up software development and system development by eliminating dependencies and reducing the overhead involved in code reviews, testing, and more. Another way that APIs help accelerate development is by allowing frontend and backend teams work in parallel. In other words, a frontend developer can work on creating the frontend of a system, what users and customers see, while a backend developer can work on the underlying system, or what users and customers do not see.
+
+- Reducing operating costs: Another reason developers use APIs is to reduce operating costs. APIs can help perform a number of functions that may have been done by humans from pulling reports to sending emails to abstracting data from one system to share with another system. APIs can help reduce operating costs in many, many other ways. Examples include, automatically starting up and shutting down manufacturing systems, creating schedules for workers, or even reducing the number of people who need software licenses.
+
+- Reducing software development costs: One of the biggest ways APIs can reduce software development costs is by allowing developers to build reusable components. For example, a backend developer can create a system that serves up information about customers, including their names, email addresses, recent product purchases, etc. Then other developers across the organization can use APIs to grab that information and track payments for finance and accounts payable, help customer service resolve problems faster, or even create recommendations for marketing campaigns. APIs can also help reduce software development costs in a number of other ways such as reducing architectural complexity and reducing the effort required to make changes to systems.
+
+- Improving software and system testing: APIs can help improve software and system testing by allowing quality engineering teams to separate tests for frontend components, the parts of software that users see, from tests for backend components, the parts of software that users don’t see. API health, quality, and performance can also be checked using automated testing, and API testing can be integrated into the CI / CD pipeline.
+
+- Improving organizational security and governance: APIs can be used to improve organizational security. For example, APIs are often used to power Single Sign-On, which is the ability for users to use one username and password to login into multiple systems. This helps avoid the dreaded pile of sticky notes with usernames and passwords, which can be a big security risk. APIs are also often a big part of corporate governance, too. APIs can be used to enforce and automate corporate rules and policies like requiring approval before expenses are paid to employees.
+
+- Enabling mobile applications: A lot of mobile applications rely on APIs to deliver important information to mobile users. For example, if you use your mobile phone to check in for a flight and select your seat, APIs can communicate the seat you selected so that flight attendants know where you are seated when you get onboard.
+
+- Reducing outages and non-performing systems: Finally, APIs can help reduce outages and non-performing systems. For example, a company might use an API to quickly identify a specific problem with a manufacturing line, and even recommend a fix, which helps maintenance staff fix the system and get back online faster.
+
+## The different kinds of APIs
+
+There are many different types of APIs, and many different ways to categorize them. Here are some of the most common.
+
+### Internal vs. External vs. Partner APIs
+One way to categorize APIs is by who has access to them:
+
+- Internal APIs are APIs that are private and only used by your team, department, company, or organization.
+
+- External APIs, also known as public APIs or open APIs (which is not to be confused with OpenAPI), are publicly available APIs that are available for anyone to use.
+
+- Partner APIs are private and shared only with specific, integration partners outside of your organization.
+
+### API architectural styles
+
+When it comes to API architecture, there are a number of styles—some newer, some older—and all have a place in the API ecosystem. Defining “architectural styles” broadly, here is a list of the most popular styles listed in order of how frequently they’re used:
+
+- REST API: REST is an acronym for REpresentational State Transfer. REST APIs rely on a few guiding principles such as a client-server structure, simple, uniform interfaces to communicate across systems, stateless operations, and more.
+
+- Webhooks: Webhooks are event-based, and simply put, are automated messages sent from one system to another system anytime an event occurs. Webhooks are even referred to ‘reverse APIs’ as a concept to check for changes in data.
+
+- SOAP API: SOAP is an acronym for Simple Object Access Protocol. SOAP APIs are more structured and formalized than other APIs, they are reliable and trusted, but can be slower than other APIs. SOAP APIs uses an XML-based messaging protocol which includes the Envelope, Header, and Body tags as required by the endpoint.
+
+- GraphQL API: GraphQL is an acronym for Graph Query Language. The Graph Query Language defines how one API asks another API for information and instead of relying on how the server defines the endpoint, a GraphQL query can ask for a specific piece of information. GraphQL was originally created by Facebook as an internal tool in 2012 but they publically released it in 2015 as an open-source language for APIs.
+
+- WebSocket API: WebSocket APIs rely on the WebSocket computer communications protocol, which is a full-duplex communication channel over a single TCP connection. Compare WebSocket protocol to HTTP (HyperText Transfer Protocol), which is a half-duplex communication. WebSocket APIs provide a standard way for servers to send information and data to clients, even when the client is not requesting data. WebSocket APIs also allow data to be communicated between clients and servers, while keeping connections open.
+
+- gRPC API: The RPC in gRPC stands for Remote Procedure Call; gRPC APIs were originated by Google. In gRPC, a client can call on a server just like it is a local object, making it easier for distributed applications and systems to communicate with one another.
+
+- Server-sent event API: Server-Sent Events, also known as SSE, is a technology that relies on data being pushed from the server. This allows a client to receive updates automatically via a HTTP connection.
+
+- AMQP API: AMQP is an abbreviation for Advanced Message Queuing Protocol. AMQP is a protocol that follows open standards, and works at the application layer. AMQP is best suited for message-oriented middleware, and like other protocols, AMQP dictates how messaging providers and clients communicate with each other. (Hint: message is in the name!) There are a few features that distinguish AMQP including its ability to queue and route messages, which support the reliability and security of AMQP.
+
+- MQTT APIs: MQTT is an abbreviation for Message Queuing Telemetry Transport. The MQTT messaging protocol is defined by Organization for the Advancement of Structured Information Standards, better known as OASIS. MQTT is well-suited for the Internet of Things (IoT), in part because it is extremely lightweight. MQTT allows devices to publish and/or subscribe to messages.
+
+- EDI: EDI is an abbreviation for Electronic Data Interchange, and it’s been around for a long time, since the ’70s! The idea behind EDI is to allow businesses to communicate electronically with each, typically transmitting information that was written on paper, like receipts or invoices that an accounts payable might send out, or order information such as purchase orders.
