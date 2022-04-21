@@ -51,7 +51,7 @@ In addition, Companies House needs to ensure compliance with legislation such as
 
 Data management is one of the foundational layers that enables all of this to happen. Data Management is amongst several cross-cutting layers that enables our organisation to operate.  
 
-```{r echo=FALSE, out.width="50%", fig.cap="Logo from The National Data Strategy", fig.align = 'right', message=FALSE, warning=FALSE}
+```{r echo=FALSE, out.width="50%", fig.cap="Logo from The National Data Strategy", fig.align = 'right'}
 knitr::include_graphics("./images/star2.png")
 ```
 
