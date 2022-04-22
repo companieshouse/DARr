@@ -34,12 +34,6 @@ Statisticians and analysts should look to implement the RAP principles in parts 
 ## What RAP does
 RAP borrows ideas from software development and academia to automate time-consuming processes of data assembly, verification and integration, generation of charts and tables, and set up and populate statistical reports. There are potential efficiency savings for analysts, freeing them up to focus on the interpretation of the results – turning four steps into one using a file format that allows intermingling of code and prose. This process effectively turns analysis into high quality documents, reports, presentation or dashboards that can be easily reproduced.
 
-Data product production steps using Open Source programming languages such as R:
-
-- Data store
-- Rmarkdown
-- Publish on GOV.UK
-
 RAP reduces the number of stages in the statistical production process which saves time, money and also improving the quality assurance of publications by analysts. The main savings come from reduced time spent manually doing quality assurance of the process outlined in Figure 1. Instead, RAP enshrines business and statistical knowledge into code and documentation as part of a software package. However, there are also the costs of analysts learning an open source language which are factored into estimating the benefits from using this method.
 
 <div class="figure" style="text-align: center">
