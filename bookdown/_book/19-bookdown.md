@@ -1,3 +1,3 @@
 # Bookdown Reference
 
-The following chapters show examples for how Bookdown works for authoring documentation.
+The following chapters show how Bookdown works for authoring documentation.

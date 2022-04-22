@@ -1,4 +1,6 @@
 fig:unnamed-chunk-1
+fig:rap-statement
+fig:rap-overview
 fig:api-fig
 fig:json-fig
 fig:nice-fig
@@ -28,6 +30,11 @@ communicate-data-quality-to-users
 provide-effective-documentation-and-metadata
 anticipate-changes-affecting-data-quality
 plan-for-the-future
+reproducible-analytical-pipeline-rap
+the-problem
+a-rap-will
+what-rap-does
+the-nature-of-reproducible-analytical-pipelines-rap
 apis
 what-is-an-api
 working-with-json-data-in-python

@@ -11,7 +11,7 @@ why-do-we-need-a-data-strategy-and-management-framework
 the-data-quality-project
 project-background-problem-statement
 project-objectives
-principles
+data-quality-principles
 commit-to-data-quality
 embed-effective-data-management-and-governance
 build-data-quality-capability
@@ -28,6 +28,11 @@ communicate-data-quality-to-users
 provide-effective-documentation-and-metadata
 anticipate-changes-affecting-data-quality
 plan-for-the-future
+reproducible-analytical-pipeline-rap
+the-problem
+a-rap-will
+what-rap-does
+the-nature-of-reproducible-analytical-pipelines-rap
 apis
 what-is-an-api
 working-with-json-data-in-python
@@ -54,4 +59,5 @@ publishing
 pages
 metadata-for-sharing
 url-your-book-url-like-httpsbookdown.orgyihuibookdown
-data-quality-principles
+fig:rap-statement
+fig:rap-overview
