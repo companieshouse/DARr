@@ -11,7 +11,7 @@ why-do-we-need-a-data-strategy-and-management-framework
 the-data-quality-project
 project-background-problem-statement
 project-objectives
-data-quality-principles
+principles
 commit-to-data-quality
 embed-effective-data-management-and-governance
 build-data-quality-capability
@@ -53,3 +53,5 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
+url-your-book-url-like-httpsbookdown.orgyihuibookdown
+data-quality-principles
