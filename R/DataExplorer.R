@@ -6,7 +6,7 @@ library(readr)
 # read csv file
 df <- 
   read_delim(
-    file = "../data/companies.csv")
+    file = "../data/player.csv")
 
 
 # pre-processing
@@ -27,7 +27,7 @@ library(DataExplorer)
 
 df %>%
   create_report(
-    output_format = html_document(toc = TRUE, toc_depth = 6, theme = "yeti"),
+    # output_format = html_document(toc = TRUE, toc_depth = 6, theme = "yeti"),
     output_file = "report.html",
     output_dir = getwd(),
     y = NULL,
