@@ -10,19 +10,24 @@ if (any(installed_packages == FALSE)) {
 library(dplyr)
 library(tidyr)
 library(stringr)
+library(urltools)
 
 # Get the dataframe from the download directory
 setwd('../data/feedback')
 feedback = read.csv('customer_feedback.csv', header = TRUE)
+glimpse(feedback)
 
 # Split the URL into additional columns (data.source_url)
 feedback$url_raw = url_parse(feedback$data.source_url)
+feedback 
 
 # Split the resulting column url_raw$path on '/'
 feedback$company_split <- str_split_fixed(feedback$url_raw$path, "/", 3)
+feedback 
 
 # Create a new dataset with only companies in the url
 df2 <- subset(feedback, company_split[,1]=="company")
+glimpse(df2)
 
 # Create the final dataset by selecting only the columns we need
 df_final <- df2[, c("created_at", 

@@ -22,7 +22,7 @@ write.csv(penguins, "penguins.csv")
 # Read the test file into a variable (2.3GB so takes a while)
 # Set working directory to /data/companies
 
-my_test <- read.csv('BasicCompanyDataAsOneFile-2022-03-01.csv', header=TRUE)
+my_test <- read.csv('BasicCompanyDataAsOneFile-2022-04-01.csv', header=TRUE)
 str(my_test)
 
 write_parquet(my_test, "companies.parquet")
