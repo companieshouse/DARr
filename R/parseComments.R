@@ -11,6 +11,29 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(urltools)
+library(mongolite)
+
+# Environment variables on your local machine will hold the connection strings
+Sys.getenv("R_TEST")
+connect_remote <- Sys.getenv("db_remote")
+connect_local <- Sys.getenv("db_local")
+
+comments_dest = mongo(collection="comments", db="companies", url=connect_local)
+#You can verify that your code is now connected to the MongoDB collection by checking the total number of documents in this database. To do so, use the count() method.
+
+comments_dest$count()
+
+# This is the record to use as the $gte in the remote
+lr <- comments_dest$find(sort = '{"created_at": -1}', limit = 1)
+lr
+
+# Rest of code here ---
+# Get connection to the remote mongoDB (connect_remote)
+# Find the last entry date in the local collection
+# Use that as a $gte for the remote collection
+# Retrieve those records
+# Parse those records using the code below
+# Write those records to the local DB
 
 # Get the dataframe from the download directory
 setwd('../data/feedback')
