@@ -18,8 +18,34 @@ Imagine you’re sitting at a table in a restaurant with a menu of choices to or
 
 JSON (JavaScript Object Notation) is the language of APIs. JSON is a way to encode data structures that ensures that they are easily readable by machines. JSON is the primary format in which data is passed back and forth to APIs, and most API servers will send their responses in JSON format.
 
-You might have noticed that the JSON output we received from the API looked like it contained Python dictionaries, lists, strings and integers. You can think of JSON as being a combination of these objects represented as strings. Let’s look at a simple example:
+The JSON output received from a typical API looks like it contains Python dictionaries, lists, strings and integers. You can think of JSON as being a combination of these objects represented as strings. Let’s look at a simple example:
 
 ```{r json-fig, fig.cap='JSON Structure', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Figure showing JSON structure.', echo=FALSE}
 knitr::include_graphics("./images/json.svg")
 ```
+
+Python has a built-in package called json, which can be used to work with JSON data.
+
+## Companies House APIs
+
+Companies House provides an API to access almost all the information it receives. Access is through a free API key (which although free, requires registration), and the output looks similar to the previous example but is a little more detailed. Here's an example:
+
+```{r chapi, fig.cap='Companies House API Structure', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Figure showing Companies House API structure.', echo=FALSE}
+knitr::include_graphics("./images/chapi.jpg")
+```
+	
+## Data Quality Augmentation
+
+Looking at the company in example \@ref(fig:chapi), we wouldn't know if the supplied address existed or not, given the base information supplied in the API. So we wrap the Companies House API within another API, which examines the supplied address and returns an assessment, as seen in  \@ref(fig:chapi2) below:
+
+```{r chapi2, fig.cap='Result of Data Quality Augmentation on Supplied Address', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Result of Data Quality Augmentation on Supplied Address', echo=FALSE}
+knitr::include_graphics("./images/chapi2.jpg")
+```
+
+A further API function retrieves customer feedback from the Companies House mongoDB, and provides this information as seen in \@ref(fig:chapi3) below:
+
+```{r chapi3, fig.cap='Result of Data Quality Augmentation on Customer Feedback', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Result of Data Quality Augmentation on Customer Feedback', echo=FALSE}
+knitr::include_graphics("./images/chapi3.jpg")
+```
+
+Despite appearing to be a good quality company at first glance (the accounts are not overdue, and neither is the confirmation statement), this example has a fictitious address, and 148 comments made about it.
