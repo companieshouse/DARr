@@ -46,13 +46,13 @@ comments_source = mongo(collection="customer_feedback", db="customer_feedback",
 
 comments_source$count() # works with VPN on
 # Get all comments with a $gte lr
-q <- paste0('{"created_at": { "$gt" : { "$date" : "', dte, '" }}}')
+q <- paste0('{"created_at": { "$gte" : { "$date" : "', dte, '" }}}')
 q
 lrs <- comments_source$find(
   query = q,
   fields = '{"_id": false }'
 )
-
+lrs
 lrs[1,] # This should be the last entry in the local batch
 nrow(lrs)
 lrs <- lrs[-c(1), ]
@@ -109,4 +109,3 @@ glimpse(df_out)
 
 # comments_dest = mongo(collection="comments_backup", db="companies", url=connect_local)
 comments_dest$insert(df_out)
-

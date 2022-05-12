@@ -20,12 +20,19 @@ write.csv(penguins, "penguins.csv")
 
 # Companies House dataset for a big test!
 # Read the test file into a variable (2.3GB so takes a while)
-# Set working directory to /data/companies
+# Set working directory
 
-my_test <- read.csv('BasicCompanyDataAsOneFile-2022-04-01.csv', header=TRUE)
-str(my_test)
+file_name = 'CCOD_FULL_2022_04' # manually enter the file name stem here
 
-write_parquet(my_test, "companies.parquet")
+fin = paste0(file_name, '.csv')
+fout = paste0(file_name, '.parquet')
+
+# my_test <- read.csv(fin, header=TRUE)
+df <- read.csv(fin, header=TRUE)
+
+str(df)
+
+write_parquet(df, fout)
 
 # How big is the parquet version of the file?
 # 364 MB - so less than 16% of the size!
