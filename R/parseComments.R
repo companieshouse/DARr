@@ -50,7 +50,7 @@ q <- paste0('{"created_at": { "$gte" : { "$date" : "', dte, '" }}}')
 q
 lrs <- comments_source$find(
   query = q,
-  fields = '{"_id": false }'
+  fields = '{"_id": false, "data.customer_email": false }'
 )
 lrs
 lrs[1,] # This should be the last entry in the local batch
@@ -85,8 +85,7 @@ df2 <- subset(feedback, company_split[,1]=="company")
 glimpse(df2)
 
 # Create the final dataset by selecting only the columns we need
-df_final <- df2[, c("created_at", 
-  "data.customer_email", "data.customer_feedback",
+df_final <- df2[, c("created_at", "data.customer_feedback",
   "data.customer_name")]
 
 # Append the final column - company number
@@ -96,7 +95,6 @@ glimpse(df_final)
 
 df_out <- df_final %>% 
   rename(
-    customer_email = data.customer_email,
     customer_feedback = data.customer_feedback,
     customer_name = data.customer_name
   )
@@ -109,3 +107,4 @@ glimpse(df_out)
 
 # comments_dest = mongo(collection="comments_backup", db="companies", url=connect_local)
 comments_dest$insert(df_out)
+
