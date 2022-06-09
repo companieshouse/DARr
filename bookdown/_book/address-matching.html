@@ -87,52 +87,133 @@
 “We carry out basic checks on documents received to make sure that they have been fully completed and signed, but we do not have the statutory power or capability to verify the accuracy of the information that companies send to us.”</p>
 <p>This means some data can be incorrectly input and isn’t verified, leading to a lower data quality, particularly when some fields on the registering form are not mandatory.
 In order to gain further insight on the postcode inaccuracies in Companies House data, a scoring matrix for the quality of address and postcode data given by a company. Companies address details were compared to the Postcode Address File (PAF) and scores given when the address details met a certain criteria.</p>
-<p>Scores used
-The postcodes and address details of the companies were scored as below:
-Score Definition
-0 No postcode given
-1 Postcode given but doesn’t exist in PAF
-2 Partial postcode given
-3 Postcode matches PAF but given in the incorrect field
-4 Full correct postcode given, address doesn’t match PAF
-5 Full correct postcode given, address partially matches PAF
-6 Address and postcode details match PAF</p>
-<p>Data
-Companies House Data
-The data from Companies House was from the Companies House Free Company Data Product containing basic details of live companies on the register.
-This is saved on the Companies House website. The file used for this data set was named ‘BasicCompanyDataAsOneFile-2022-03-01.zip (415Mb)’ and is publicly available at:
-<a href="http://download.companieshouse.gov.uk/en_output.html" class="uri">http://download.companieshouse.gov.uk/en_output.html</a>
-Postcode Address File
-The PAF is a database containing all known postcodes in the UK, containing the Royal Mail postal addressed. This was downloaded from MongoDB.
-The data used in this analysis containing the Glasgow addresses is saved in the below Companies House sharepoint page (access may be restricted to DAR).
-<a href="https://companieshouse.sharepoint.com/sites/team-aci/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fteam%2Daci%2FShared%20Documents%2FData%20Quality%2FPostcode%20Files%2FGLASGOW&amp;p=true" class="uri">https://companieshouse.sharepoint.com/sites/team-aci/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fteam%2Daci%2FShared%20Documents%2FData%20Quality%2FPostcode%20Files%2FGLASGOW&amp;p=true</a></p>
-<p>Software
-The Software/programs used for analysis were Microsoft Excel and Microsoft Power BI.
-Caveats and Limitations
-This data was the current position of Companies House and the PAF on 11/03/2022 therefore any subsequent updates in the Companies House data or Postcode Address File will not be reflected in this analysis.<br>
-The filters used within the data were:
-• Postcodes beginning with B1 - B7
-• ‘Birmingham’ filled in the address line 2
-• ‘Birmingham’ in the post town.
-Not all address data was complete so the filters were applied to fit one or more of the above criteria.
-Method
-Import the data files onto Power BI (desktop).
-Cleaning the data
-1. Open the PAF and highlight the ‘postcode.stripped’ column. Replace the spaces with nothing to remove any whitespace.
-2. Open the CH data file and highlight the ‘RegAddress.PostCode’ column. Replace the spaces with nothing to remove any whitespace.
-Separating the Birmingham data
-1. Open the Companies House Data in the Query editor
-2. Add a conditional column and insert the below conditions to populate the condition with the phrase “BIRMINGHAM,” else “Other.”
-• ‘RegAddress.PostCode’ beings with ‘B1,’’B2’,’B3’,’B4’,’B5’,’B6’,’B7’
-OR
-• RegAddress.AddressLine1, RegAddress. AddressLine2, RegAddress.PostTown, RegAddress.County contains ‘Birmingham.’
-3. Filter any remaining rows out (in this data, there were a few locations on ‘Birmingham Road’ with a different postcode that were not filtered out using the above conditions and some postcodes beginning with be such as B80 which are not in the Birmingham PAF).
-4. Use a filter to only select the values in this column that say ‘BIRMINGHAM.’
-5. Close and apply the query.</p>
-<p> 
-Scoring the data
-Score Method
-0 – No Postcode given 1. Add a new column on the CH File. This can be done in the query editor, or ‘Data’ view. For this report, the column was added in the ‘Data’ view.
+</div>
+<div id="scores-used" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Scores used<a class="anchor" aria-label="anchor" href="#scores-used"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:unnamed-chunk-1">Table 4.1: </span>Postcode Scoring Matrix | Version 1</caption>
+<thead><tr class="header">
+<th align="right">Score</th>
+<th align="left">Definition</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="left">No postcode given</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">Postcode given but doesn’t exist in PAF</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="left">Partial postcode given</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="left">Postcode matches PAF but given in the incorrect field</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="left">Full correct postcode given, address doesn’t match PAF</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="left">Full correct postcode given, address partially matches PAF</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="left">Address and postcode details match PAF</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="data" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Data<a class="anchor" aria-label="anchor" href="#data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="companies-house-data" class="section level3" number="4.3.1">
+<h3>
+<span class="header-section-number">4.3.1</span> Companies House Data<a class="anchor" aria-label="anchor" href="#companies-house-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>The data from Companies House was from the Companies House Free Company Data Product containing basic details of live companies on the register.</p>
+<p>This is saved on the Companies House website. The file used for this data set was named ‘BasicCompanyDataAsOneFile-2022-03-01.zip (415Mb)’ and is publicly available at:</p>
+<p><a href="http://download.companieshouse.gov.uk/en_output.html" class="uri">http://download.companieshouse.gov.uk/en_output.html</a></p>
+</div>
+<div id="postcode-address-file" class="section level3" number="4.3.2">
+<h3>
+<span class="header-section-number">4.3.2</span> Postcode Address File<a class="anchor" aria-label="anchor" href="#postcode-address-file"><i class="fas fa-link"></i></a>
+</h3>
+<p>The PAF is a database containing all known postcodes in the UK, containing the Royal Mail postal addressed. This was downloaded from MongoDB.</p>
+<p>The data used in this analysis containing the Glasgow addresses is saved in the below Companies House sharepoint page (access may be restricted to DAR).</p>
+<p><a href="https://companieshouse.sharepoint.com/sites/team-aci/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fteam%2Daci%2FShared%20Documents%2FData%20Quality%2FPostcode%20Files%2FGLASGOW&amp;p=true" class="uri">https://companieshouse.sharepoint.com/sites/team-aci/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fteam%2Daci%2FShared%20Documents%2FData%20Quality%2FPostcode%20Files%2FGLASGOW&amp;p=true</a></p>
+</div>
+</div>
+<div id="software" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Software<a class="anchor" aria-label="anchor" href="#software"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Software/programs used for analysis were Microsoft Excel and Microsoft Power BI.</p>
+</div>
+<div id="caveats-and-limitations" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Caveats and Limitations<a class="anchor" aria-label="anchor" href="#caveats-and-limitations"><i class="fas fa-link"></i></a>
+</h2>
+<p>This data was the current position of Companies House and the PAF on 11/03/2022 therefore any subsequent updates in the Companies House data or Postcode Address File will not be reflected in this analysis.</p>
+<p>The filters used within the data were:</p>
+<ul>
+<li>Postcodes beginning with B1 - B7</li>
+<li>‘Birmingham’ filled in the address line 2</li>
+<li>‘Birmingham’ in the post town.</li>
+</ul>
+<p>Not all address data was complete so the filters were applied to fit one or more of the above criteria.</p>
+</div>
+<div id="method" class="section level2" number="4.6">
+<h2>
+<span class="header-section-number">4.6</span> Method<a class="anchor" aria-label="anchor" href="#method"><i class="fas fa-link"></i></a>
+</h2>
+<p>Import the data files onto Power BI (desktop).</p>
+<div id="cleaning-the-data" class="section level3" number="4.6.1">
+<h3>
+<span class="header-section-number">4.6.1</span> Cleaning the data<a class="anchor" aria-label="anchor" href="#cleaning-the-data"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open the PAF and highlight the ‘postcode.stripped’ column. Replace the spaces with nothing to remove any whitespace.</p></li>
+<li><p>Open the CH data file and highlight the ‘RegAddress.PostCode’ column. Replace the spaces with nothing to remove any whitespace.</p></li>
+</ol>
+</div>
+<div id="separating-the-birmingham-data" class="section level3" number="4.6.2">
+<h3>
+<span class="header-section-number">4.6.2</span> Separating the Birmingham data<a class="anchor" aria-label="anchor" href="#separating-the-birmingham-data"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open the Companies House Data in the Query editor</p></li>
+<li>
+<p>Add a conditional column and insert the below conditions to populate the condition with the phrase “BIRMINGHAM,” else “Other.”</p>
+<ul>
+<li><p>‘RegAddress.PostCode’ beings with ‘B1,’’B2’,’B3’,’B4’,’B5’,’B6’,’B7’</p></li>
+<li><p>OR</p></li>
+<li><p>RegAddress.AddressLine1, RegAddress. AddressLine2, RegAddress.PostTown, RegAddress.County contains ‘Birmingham.’</p></li>
+</ul>
+</li>
+<li><p>Filter any remaining rows out (in this data, there were a few locations on ‘Birmingham Road’ with a different postcode that were not filtered out using the above conditions and some postcodes beginning with be such as B80 which are not in the Birmingham PAF).</p></li>
+<li><p>Use a filter to only select the values in this column that say ‘BIRMINGHAM.’</p></li>
+<li><p>Close and apply the query.</p></li>
+</ol>
+</div>
+</div>
+<div id="scoring-the-data" class="section level2" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> Scoring the data<a class="anchor" aria-label="anchor" href="#scoring-the-data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="score-method" class="section level3" number="4.7.1">
+<h3>
+<span class="header-section-number">4.7.1</span> Score Method<a class="anchor" aria-label="anchor" href="#score-method"><i class="fas fa-link"></i></a>
+</h3>
+<p>0 – No Postcode given 1. Add a new column on the CH File. This can be done in the query editor, or ‘Data’ view. For this report, the column was added in the ‘Data’ view.
 2. Input the formula No Postcode = if(‘BasicCompanyDataAsOneFile-2022-03-01’[RegAddress.PostCode]=““,0,1)
 3. into the new column. It will return a 0 for the postcodes in the postcode field that are blank, and a 1 for the rows in the postcode field which contain a value.
 4. Go to the reports tab and into the ‘Score 0’ sheet.
@@ -181,12 +262,19 @@ In this data set, there were no full, correct postcodes given in the address fie
 <p>6 - Address and postcode details match PAF These were scored while scoring postcodes with a ‘4.’ Any that did not score 4, were given the score of 5. These were The same conditions in the address line details, but with the PAF Match column filtered to those that were ‘True’ and matched the postcode field in Companies House Data.</p>
 <p>Power BI Report Link</p>
 <p>Power BI Dashboard Link</p>
-<p>Recommendations
-1. Define what a good address would look like in Companies House data. One of the issues with current data is that some address details are not in the appropriate field, such as the town being input into ‘Address Line 2’ column.
-2. If the postcode field in CH data is blank, consider augmenting data by adding a new column to lookup the company address to bring back a postcode that exists in the PAF. Currently CH cannot correct any submitted data such as postcodes but a reference column for a matched address could be added, as outlined in Corporate Transparency and Register Reform White Paper (publishing.service.gov.uk), “If an individual fails to verify, the public register will be annotated to show this. This will enable anyone viewing the register to make their own assessment of the integrity and risk profile of those they are researching.” Could this be extended to full address details to standardise?
-3. Conduct further analysis on the correlation between a Company not supplying a postcode, or not supplying a correct address (one that doesn’t match the PAF) and filing accounts and confirmation statements on time. Preliminary analysis has been completed on this and in the future, the quality of addresses submitted could be used as an indicator for companies that are fraudulent, or would not file accounts and confirmation statements on time. The analysis already completed can be found in the following BI Dashboard: <a href="https://app.powerbi.com/groups/me/dashboards/2921b718-7552-40f2-b759-6ae77120bad5?ctid=e6acfe5e-7f2a-455a-9d85-ecf93371f601&amp;pbi_source=linkShare" class="uri">https://app.powerbi.com/groups/me/dashboards/2921b718-7552-40f2-b759-6ae77120bad5?ctid=e6acfe5e-7f2a-455a-9d85-ecf93371f601&amp;pbi_source=linkShare</a>
-4. Utilise other software for analysis. Currently, the PAF is split into sections (Birmingham and Glasgow in this example), so the Companies House data requires filtering to find addresses in those cities, however, not all postcodes with the filters applied are in the correct cities. For example postcodes exist in ‘B7’ but ‘B74’ is not in the PAF as a Birmingham postcodes. Addresses are also input into several different fields, or customers do not state the city, but smaller towns within the city as the main post town. This makes it unfeasible to filter the CH accurately.</p>
-
+</div>
+</div>
+<div id="recommendations" class="section level2" number="4.8">
+<h2>
+<span class="header-section-number">4.8</span> Recommendations<a class="anchor" aria-label="anchor" href="#recommendations"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>Define what a good address would look like in Companies House data. One of the issues with current data is that some address details are not in the appropriate field, such as the town being input into ‘Address Line 2’ column.</li>
+<li>If the postcode field in CH data is blank, consider augmenting data by adding a new column to lookup the company address to bring back a postcode that exists in the PAF. Currently CH cannot correct any submitted data such as postcodes but a reference column for a matched address could be added, as outlined in Corporate Transparency and Register Reform White Paper (publishing.service.gov.uk), “If an individual fails to verify, the public register will be annotated to show this. This will enable anyone viewing the register to make their own assessment of the integrity and risk profile of those they are researching.” Could this be extended to full address details to standardise?</li>
+<li>Conduct further analysis on the correlation between a Company not supplying a postcode, or not supplying a correct address (one that doesn’t match the PAF) and filing accounts and confirmation statements on time. Preliminary analysis has been completed on this and in the future, the quality of addresses submitted could be used as an indicator for companies that are fraudulent, or would not file accounts and confirmation statements on time. The analysis already completed can be found in the following BI Dashboard: <a href="https://app.powerbi.com/groups/me/dashboards/2921b718-7552-40f2-b759-6ae77120bad5?ctid=e6acfe5e-7f2a-455a-9d85-ecf93371f601&amp;pbi_source=linkShare" class="uri">https://app.powerbi.com/groups/me/dashboards/2921b718-7552-40f2-b759-6ae77120bad5?ctid=e6acfe5e-7f2a-455a-9d85-ecf93371f601&amp;pbi_source=linkShare</a>
+</li>
+<li>Utilise other software for analysis. Currently, the PAF is split into sections (Birmingham and Glasgow in this example), so the Companies House data requires filtering to find addresses in those cities, however, not all postcodes with the filters applied are in the correct cities. For example postcodes exist in ‘B7’ but ‘B74’ is not in the PAF as a Birmingham postcodes. Addresses are also input into several different fields, or customers do not state the city, but smaller towns within the city as the main post town. This makes it unfeasible to filter the CH accurately.</li>
+</ol>
 </div>
 </div>
   <div class="chapter-nav">

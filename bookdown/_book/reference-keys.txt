@@ -38,6 +38,7 @@ the-problem
 a-rap-will
 what-rap-does
 the-nature-of-reproducible-analytical-pipelines-rap
+address-matching
 introduction-and-purpose
 application-programming-interface-api
 what-is-an-api
@@ -67,4 +68,17 @@ publishing
 pages
 metadata-for-sharing
 url-your-book-url-like-httpsbookdown.orgyihuibookdown
-address-matching
+tab:rap-statement
+scores-used
+tab:unnamed-chunk-1
+data
+companies-house-data
+postcode-address-file
+software
+caveats-and-limitations
+method
+cleaning-the-data
+separating-the-birmingham-data
+scoring-the-data
+score-method
+recommendations
