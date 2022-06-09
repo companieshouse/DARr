@@ -22,7 +22,7 @@ write.csv(penguins, "penguins.csv")
 # Read the test file into a variable (2.3GB so takes a while)
 # Set working directory
 
-file_name = 'CCOD_FULL_2022_04' # manually enter the file name stem here
+file_name = 'BasicCompanyDataAsOneFile-2022-06-01' # manually enter the file name stem here
 
 fin = paste0(file_name, '.csv')
 fout = paste0(file_name, '.parquet')
