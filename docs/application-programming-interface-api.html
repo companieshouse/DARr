@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 Application Programming Interface (API) | Companies House Data Quality</title>
+<title>Chapter 5 Application Programming Interface (API) | Companies House Data Quality</title>
 <meta name="author" content="Rob Eva">
 <meta name="description" content="API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an...">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="Chapter 4 Application Programming Interface (API) | Companies House Data Quality">
+<meta property="og:title" content="Chapter 5 Application Programming Interface (API) | Companies House Data Quality">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/../images/star2.png">
 <meta property="og:description" content="API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 4 Application Programming Interface (API) | Companies House Data Quality">
+<meta name="twitter:title" content="Chapter 5 Application Programming Interface (API) | Companies House Data Quality">
 <meta name="twitter:description" content="API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an...">
 <meta name="twitter:image" content="/../images/star2.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -70,15 +70,16 @@
 <li><a class="" href="index.html"><span class="header-section-number">1</span> Preface</a></li>
 <li><a class="" href="data-quality-principles.html"><span class="header-section-number">2</span> Data Quality Principles</a></li>
 <li><a class="" href="reproducible-analytical-pipeline-rap.html"><span class="header-section-number">3</span> Reproducible Analytical Pipeline (RAP)</a></li>
-<li><a class="active" href="application-programming-interface-api.html"><span class="header-section-number">4</span> Application Programming Interface (API)</a></li>
-<li><a class="" href="bookdown-reference.html"><span class="header-section-number">5</span> Bookdown Reference</a></li>
-<li><a class="" href="about.html"><span class="header-section-number">6</span> About</a></li>
-<li><a class="" href="hello-bookdown.html"><span class="header-section-number">7</span> Hello bookdown</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">8</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">9</span> Parts</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">10</span> Footnotes and citations</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">11</span> Blocks</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">12</span> Sharing your book</a></li>
+<li><a class="" href="address-matching.html"><span class="header-section-number">4</span> Address Matching</a></li>
+<li><a class="active" href="application-programming-interface-api.html"><span class="header-section-number">5</span> Application Programming Interface (API)</a></li>
+<li><a class="" href="bookdown-reference.html"><span class="header-section-number">6</span> Bookdown Reference</a></li>
+<li><a class="" href="about.html"><span class="header-section-number">7</span> About</a></li>
+<li><a class="" href="hello-bookdown.html"><span class="header-section-number">8</span> Hello bookdown</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">9</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">10</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">11</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">12</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">13</span> Sharing your book</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -87,67 +88,67 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="application-programming-interface-api" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="application-programming-interface-api" class="section level1" number="5">
 <h1>
-<span class="header-section-number">4</span> Application Programming Interface (API)<a class="anchor" aria-label="anchor" href="#application-programming-interface-api"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5</span> Application Programming Interface (API)<a class="anchor" aria-label="anchor" href="#application-programming-interface-api"><i class="fas fa-link"></i></a>
 </h1>
 <p>API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an instant message, or check the weather on your phone, you’re using an API.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:api-fig"></span>
 <img src="images/api-request.svg" alt="Figure showing how an API works." width="80%"><p class="caption">
-Figure 4.1: How an API call works
+Figure 5.1: How an API call works
 </p>
 </div>
-<div id="what-is-an-api" class="section level2" number="4.1">
+<div id="what-is-an-api" class="section level2" number="5.1">
 <h2>
-<span class="header-section-number">4.1</span> What is an API?<a class="anchor" aria-label="anchor" href="#what-is-an-api"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.1</span> What is an API?<a class="anchor" aria-label="anchor" href="#what-is-an-api"><i class="fas fa-link"></i></a>
 </h2>
 <p>When you use an application on your mobile phone, the application connects to the Internet and sends data to a server. The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone. The application then interprets that data and presents you with the information you wanted in a readable way. This is what an API is - all of this happens via API.</p>
 <p>To explain this better, let us take a familiar example.</p>
 <p>Imagine you’re sitting at a table in a restaurant with a menu of choices to order from. The kitchen is the part of the “system” that will prepare your order. What is missing is the critical link to communicate your order to the kitchen and deliver your food back to your table. That’s where the waiter or API comes in. The waiter is the messenger – or API – that takes your request or order and tells the kitchen – the system – what to do. Then the waiter delivers the response back to you; in this case, it is the food.</p>
 </div>
-<div id="working-with-json-data-in-python" class="section level2" number="4.2">
+<div id="working-with-json-data-in-python" class="section level2" number="5.2">
 <h2>
-<span class="header-section-number">4.2</span> Working with JSON Data in Python<a class="anchor" aria-label="anchor" href="#working-with-json-data-in-python"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2</span> Working with JSON Data in Python<a class="anchor" aria-label="anchor" href="#working-with-json-data-in-python"><i class="fas fa-link"></i></a>
 </h2>
 <p>JSON (JavaScript Object Notation) is the language of APIs. JSON is a way to encode data structures that ensures that they are easily readable by machines. JSON is the primary format in which data is passed back and forth to APIs, and most API servers will send their responses in JSON format.</p>
 <p>The JSON output received from a typical API looks like it contains Python dictionaries, lists, strings and integers. You can think of JSON as being a combination of these objects represented as strings. Let’s look at a simple example:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:json-fig"></span>
 <img src="images/json.svg" alt="Figure showing JSON structure." width="80%"><p class="caption">
-Figure 4.2: JSON Structure
+Figure 5.2: JSON Structure
 </p>
 </div>
 <p>Python has a built-in package called json, which can be used to work with JSON data.</p>
 </div>
-<div id="companies-house-apis" class="section level2" number="4.3">
+<div id="companies-house-apis" class="section level2" number="5.3">
 <h2>
-<span class="header-section-number">4.3</span> Companies House APIs<a class="anchor" aria-label="anchor" href="#companies-house-apis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3</span> Companies House APIs<a class="anchor" aria-label="anchor" href="#companies-house-apis"><i class="fas fa-link"></i></a>
 </h2>
 <p>Companies House provides an API to access almost all the information it receives. Access is through a free API key (which although free, requires registration), and the output looks similar to the previous example but is a little more detailed. Here’s an example:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:chapi"></span>
 <img src="images/chapi.jpg" alt="Figure showing Companies House API structure." width="80%"><p class="caption">
-Figure 4.3: Companies House API Structure
+Figure 5.3: Companies House API Structure
 </p>
 </div>
 </div>
-<div id="data-quality-augmentation" class="section level2" number="4.4">
+<div id="data-quality-augmentation" class="section level2" number="5.4">
 <h2>
-<span class="header-section-number">4.4</span> Data Quality Augmentation<a class="anchor" aria-label="anchor" href="#data-quality-augmentation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.4</span> Data Quality Augmentation<a class="anchor" aria-label="anchor" href="#data-quality-augmentation"><i class="fas fa-link"></i></a>
 </h2>
-<p>Looking at the company in example <a href="application-programming-interface-api.html#fig:chapi">4.3</a>, we wouldn’t know if the supplied address existed or not, given the base information supplied in the API. So we wrap the Companies House API within another API, which examines the supplied address and returns an assessment, as seen in <a href="application-programming-interface-api.html#fig:chapi2">4.4</a> below:</p>
+<p>Looking at the company in example <a href="application-programming-interface-api.html#fig:chapi">5.3</a>, we wouldn’t know if the supplied address existed or not, given the base information supplied in the API. So we wrap the Companies House API within another API, which examines the supplied address and returns an assessment, as seen in <a href="application-programming-interface-api.html#fig:chapi2">5.4</a> below:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:chapi2"></span>
 <img src="images/chapi2.jpg" alt="Result of Data Quality Augmentation on Supplied Address" width="80%"><p class="caption">
-Figure 4.4: Result of Data Quality Augmentation on Supplied Address
+Figure 5.4: Result of Data Quality Augmentation on Supplied Address
 </p>
 </div>
-<p>A further API function retrieves customer feedback from the Companies House mongoDB, and provides this information as seen in <a href="application-programming-interface-api.html#fig:chapi3">4.5</a> below:</p>
+<p>A further API function retrieves customer feedback from the Companies House mongoDB, and provides this information as seen in <a href="application-programming-interface-api.html#fig:chapi3">5.5</a> below:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:chapi3"></span>
 <img src="images/chapi3.jpg" alt="Result of Data Quality Augmentation on Customer Feedback" width="80%"><p class="caption">
-Figure 4.5: Result of Data Quality Augmentation on Customer Feedback
+Figure 5.5: Result of Data Quality Augmentation on Customer Feedback
 </p>
 </div>
 <p>Despite appearing to be a good quality company at first glance (the accounts are not overdue, and neither is the confirmation statement), this example has a fictitious address, and 148 comments made about it.</p>
@@ -155,22 +156,22 @@ Figure 4.5: Result of Data Quality Augmentation on Customer Feedback
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="reproducible-analytical-pipeline-rap.html"><span class="header-section-number">3</span> Reproducible Analytical Pipeline (RAP)</a></div>
-<div class="next"><a href="bookdown-reference.html"><span class="header-section-number">5</span> Bookdown Reference</a></div>
+<div class="prev"><a href="address-matching.html"><span class="header-section-number">4</span> Address Matching</a></div>
+<div class="next"><a href="bookdown-reference.html"><span class="header-section-number">6</span> Bookdown Reference</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#application-programming-interface-api"><span class="header-section-number">4</span> Application Programming Interface (API)</a></li>
-<li><a class="nav-link" href="#what-is-an-api"><span class="header-section-number">4.1</span> What is an API?</a></li>
-<li><a class="nav-link" href="#working-with-json-data-in-python"><span class="header-section-number">4.2</span> Working with JSON Data in Python</a></li>
-<li><a class="nav-link" href="#companies-house-apis"><span class="header-section-number">4.3</span> Companies House APIs</a></li>
-<li><a class="nav-link" href="#data-quality-augmentation"><span class="header-section-number">4.4</span> Data Quality Augmentation</a></li>
+<li><a class="nav-link" href="#application-programming-interface-api"><span class="header-section-number">5</span> Application Programming Interface (API)</a></li>
+<li><a class="nav-link" href="#what-is-an-api"><span class="header-section-number">5.1</span> What is an API?</a></li>
+<li><a class="nav-link" href="#working-with-json-data-in-python"><span class="header-section-number">5.2</span> Working with JSON Data in Python</a></li>
+<li><a class="nav-link" href="#companies-house-apis"><span class="header-section-number">5.3</span> Companies House APIs</a></li>
+<li><a class="nav-link" href="#data-quality-augmentation"><span class="header-section-number">5.4</span> Data Quality Augmentation</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/05-api.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/05-api.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/08-api.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/08-api.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -182,7 +183,7 @@ Figure 4.5: Result of Data Quality Augmentation on Customer Feedback
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Companies House Data Quality</strong>" was written by Rob Eva. It was last built on 2022-05-12.</p>
+    <p>"<strong>Companies House Data Quality</strong>" was written by Rob Eva. It was last built on 2022-06-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
