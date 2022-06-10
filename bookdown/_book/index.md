@@ -1,7 +1,7 @@
 --- 
 title: "Companies House Data Quality"
 author: "Rob Eva and Lauren Calow"
-date: "`r Sys.Date()`"
+date: "2022-06-10"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -52,9 +52,10 @@ In addition, Companies House needs to ensure compliance with legislation such as
 
 Data management is one of the foundational layers that enables all of this to happen. Data Management is amongst several cross-cutting layers that enables our organisation to operate.  
 
-```{r echo=FALSE, out.width="50%", fig.cap="Logo from The National Data Strategy", fig.align = 'right'}
-knitr::include_graphics("./images/star2.png")
-```
+<div class="figure" style="text-align: right">
+<img src="./images/star2.png" alt="Logo from The National Data Strategy" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-1)Logo from The National Data Strategy</p>
+</div>
 
 ## The Data Quality Project
 
@@ -79,9 +80,4 @@ The main objectives of this project are to deliver the following:
 - An assessment of organisational maturity levels in terms of skills and roles and responsibilities, including development of "training" around the trade-off of quality dimensions to allow effective implementation and take-up. 
 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+

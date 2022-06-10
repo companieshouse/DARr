@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Reproducible Analytical Pipeline (RAP) | Companies House Data Quality</title>
+<meta name="author" content="Rob Eva and Lauren Calow">
+<meta name="description" content="3.1 The Problem Good quality evidence is key to making better decisions. Departments across government collect and analyse data for a wide variety of outputs. These outputs include official...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Reproducible Analytical Pipeline (RAP) | Companies House Data Quality">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://companieshouse.github.io/DARr/reproducible-analytical-pipeline-rap.html">
+<meta property="og:image" content="https://companieshouse.github.io/DARr/../images/star2.png">
+<meta property="og:description" content="3.1 The Problem Good quality evidence is key to making better decisions. Departments across government collect and analyse data for a wide variety of outputs. These outputs include official...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Reproducible Analytical Pipeline (RAP) | Companies House Data Quality">
+<meta name="twitter:description" content="3.1 The Problem Good quality evidence is key to making better decisions. Departments across government collect and analyse data for a wide variety of outputs. These outputs include official...">
+<meta name="twitter:image" content="https://companieshouse.github.io/DARr/../images/star2.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Companies House Data Quality</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="data-quality-principles.html"><span class="header-section-number">2</span> Data Quality Principles</a></li>
+<li><a class="active" href="reproducible-analytical-pipeline-rap.html"><span class="header-section-number">3</span> Reproducible Analytical Pipeline (RAP)</a></li>
+<li><a class="" href="address-matching.html"><span class="header-section-number">4</span> Address Matching</a></li>
+<li><a class="" href="application-programming-interface-api.html"><span class="header-section-number">5</span> Application Programming Interface (API)</a></li>
+<li><a class="" href="bookdown-reference.html"><span class="header-section-number">6</span> Bookdown Reference</a></li>
+<li><a class="" href="about.html"><span class="header-section-number">7</span> About</a></li>
+<li><a class="" href="hello-bookdown.html"><span class="header-section-number">8</span> Hello bookdown</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">9</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">10</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">11</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">12</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">13</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/companieshouse/DARr">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="reproducible-analytical-pipeline-rap" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Reproducible Analytical Pipeline (RAP)<a class="anchor" aria-label="anchor" href="#reproducible-analytical-pipeline-rap"><i class="fas fa-link"></i></a>
+</h1>
+<div id="the-problem" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> The Problem<a class="anchor" aria-label="anchor" href="#the-problem"><i class="fas fa-link"></i></a>
+</h2>
+<p>Good quality evidence is key to making better decisions. Departments across government collect and analyse data for a wide variety of outputs. These outputs include official statistics, operational reports and predictive models for policy making.</p>
+<p>Reproducible Analytical Pipelines (RAPs) are automated statistical and analytical processes. They incorporate elements of software engineering best practice to ensure that the pipelines are reproducible, auditable, efficient, and high quality.</p>
+<p>RAPs increase the efficiency of statistical and analytical processes, delivering value. Reproducibility and auditability increase trust in the statistics. The pipelines are easier to quality assure than manual processes, leading to higher quality.</p>
+<p>Statisticians and analysts should look to implement the RAP principles in parts of their processes.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:rap-statement"></span>
+<img src="images/rap-statement.jpg" alt="General Overview of why RAP is important" width="80%"><p class="caption">
+Figure 3.1: Ed Humpherson, Office for Statistics Regulation
+</p>
+</div>
+</div>
+<div id="a-rap-will" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> A RAP will:<a class="anchor" aria-label="anchor" href="#a-rap-will"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>improve the quality of the analysis</p></li>
+<li><p>increase trust in the analysis by producers, their managers and users</p></li>
+<li><p>create a more efficient process</p></li>
+<li><p>improve business continuity and knowledge management</p></li>
+<li>
+<p>In order to achieve these benefits, at a minimum a RAP must:</p>
+<ul>
+<li>minimise manual steps, for example copy-paste, point-click or drag-drop operations. - Where it is absolutely necessary to include a manual step in the process this must be documented as described below</li>
+<li>be built using open source software which is available to anyone, preferably R or python</li>
+<li>deepen technical and quality assurance processes with peer review to ensure that the process is reproducible and that the below requirements have been met</li>
+<li>guarantee an audit trail using version control software, preferably Git</li>
+<li>be open to anyone – this can be facilitated most easily through the use of file and code sharing platforms</li>
+<li>follow existing good practice for quality assurance – guidance set by departments or organisations, and by Best Practice and Impact and Data Quality Hub for the Analysis Function and Government Statistical Service</li>
+<li>contain well-commented code and have documentation embedded and version controlled within the product, rather than saved elsewhere</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="what-rap-does" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> What RAP does<a class="anchor" aria-label="anchor" href="#what-rap-does"><i class="fas fa-link"></i></a>
+</h2>
+<p>RAP borrows ideas from software development and academia to automate time-consuming processes of data assembly, verification and integration, generation of charts and tables, and set up and populate statistical reports. There are potential efficiency savings for analysts, freeing them up to focus on the interpretation of the results – turning four steps into one using a file format that allows intermingling of code and prose. This process effectively turns analysis into high quality documents, reports, presentation or dashboards that can be easily reproduced.</p>
+<p>RAP reduces the number of stages in the statistical production process which saves time, money and also improving the quality assurance of publications by analysts. The main savings come from reduced time spent manually doing quality assurance of the process outlined in Figure 1. Instead, RAP enshrines business and statistical knowledge into code and documentation as part of a software package. However, there are also the costs of analysts learning an open source language which are factored into estimating the benefits from using this method.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:rap-overview"></span>
+<img src="images/rap-overview.jpg" alt="How RAP works" width="80%"><p class="caption">
+Figure 3.2: How RAP works
+</p>
+</div>
+</div>
+<div id="the-nature-of-reproducible-analytical-pipelines-rap" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> The nature of Reproducible Analytical Pipelines (RAP)<a class="anchor" aria-label="anchor" href="#the-nature-of-reproducible-analytical-pipelines-rap"><i class="fas fa-link"></i></a>
+</h2>
+<p><em>by Shannan Child, Centre for Crime and Justice, Office for National Statistics</em></p>
+<p>Last year, the Centre for Crime and Justice (CCJ) started transformation plans to automate the most repetitive, resource intensive elements of the Crime Survey for England and Wales (CSEW) statistical pipeline. Our aim is to transform the way we produce our outputs and tables.</p>
+<p>In March 2020 we kicked-off a collaborative project with the GSS Best Practice and Impact Team (BPI) to automate the production of our Nature of Crime tables.</p>
+<p>Now, we are a week away from publishing those 100+ fully formatted tables, created through our R and Python reproducible analytical pipelines (RAP). We also plan to publish the code that sits behind them on our GitHub.</p>
+<p>This is the first programming project of its kind for the CCJ, and certainly the first I have ever led. Reflecting on the last 6 months, this has been an incredible learning experience for myself and my team. We have learned so much about working with new coding tools, best practice, and the “spirit” of RAP.</p>
+<p>Not only has this project developed our skill set but it has improved our production process. Our reliance on copying and pasting information between programs has been removed. This has improved the quality and readability of the tables, and opened opportunities for further transformation in the CCJ.</p>
+<p>Some benefits are obvious, but some will only become apparent in time. We’ll have reduced what was a three-week sprint for 13 analysts in the team to a couple of hours for two members of the RAP team! This is a 1500-person hour saving. We also expect our new RAPs will reduce the number and nature of errors in table production and therefore reduce the number of revisions made to National Statistics. The project has increased the capability in the team. With this, we will roll-out RAP to our other outputs within the Centre.</p>
+<p>I’m keen to share our learning and encourage you all to consider how you can also reap the benefits of RAP.</p>
+<p>Ensure team has core knowledge about the coding tools
+The programming skills of myself and my team when we started this project was incredibly wide-ranging. We had a few members who were proficient in using R or Python, some members who had attended training sessions and others with little to no experience at all. I was very lucky to have a team who were motivated and enthused to develop their skills and who picked up the important concepts as we progressed through development.</p>
+<p>However, on reflection, we should have refreshed and supported the development of the teams’ core knowledge around functions, loops and data handling, all essential in RAP work, at the outset. There is so much to learn before you understand why you need to learn it, so if we had started with a strong and level foundation we may have progressed even faster!</p>
+<p>“Just-in-time” learning is the best approach
+As we progressed through the project we were inevitably presented with new concepts or tasks unfamiliar to us as a working group. We got into the habit of tackling these with bespoke just-in-time training sessions for the team. When it came to test parts of the code we had developed, we held a unit testing session, facilitated by the BPI Team.</p>
+<p>The session covered what unit testing is, how to apply it and as a group we worked through an example. Following this we applied this learning in our own programming and table development. This approach worked as it was relevant training at the right time for us in the project. We had lots of sessions like this; when we needed to resolve merge conflicts in Git, complete peer reviewing and develop documentation.</p>
+<p>Use GitLab little and often
+Git is so important. I didn’t realise this until we started using it and it’s been a fantastic collaborative tool in this project. It was an additional learning curve for the team, but the benefits have outweighed all of that. We only started to get into the habit of using Git much later in our development process, despite having been introduced it very early on.</p>
+<p>It’s a completely new way of working for us so it took some time for us to get to grips with it, but we got there. If we were to do this project again, I would push my team to use this to host their code from the first line they developed. I would also encourage them to get into the habit of committing to our repository much more frequently. When it came to quality assuring our pipeline, time elapsed between commits meant we had large chunks of code to check. This would have been a much more streamlined and manageable process had we used Git little and often from the start.</p>
+<p>Embrace the unexpected
+I had no idea how long each stage of this process would take my team. We worked in an iterative way. Milestones and deliverables had flexible timelines to begin with. We had regular catch-ups and reviews to identify what was working well, what wasn’t and where we needed more support or training.</p>
+<p>I planned this project with three important outcomes in mind:</p>
+<p>the publication of the tables
+a “nature of crime” code repository
+the development of my team’s skill set
+I had a set idea of how we would get there, but the more we progressed the more I moved to embracing the unexpected. Some of our best personal and project development has come out of troubleshooting challenges or barriers which we didn’t expect to face. If I were to do this project again, I would still set out my key outcomes, but I would let the code, coding tool and innovation of my team drive how we get there from the start.</p>
+<p>Continuous development is key
+Whilst we are nearing publication day, there is still so much we would like to do with these tables and this code. We have identified areas in the code which we will change as we know more about RAP and are more confident in our skill set. This is only the start of our transformation journey in the Centre for Crime and Justice. We will continue to learn more about the methods and capability of our new programming languages.</p>
+<p>We will roll out this learning and approach to more of our outputs going forward. As a team, we developed a future development log where over the last few weeks we have added ideas and potential RAP opportunities we would like to investigate following publication.</p>
+<p>In the spirit of continuous development and transparency, we are also publishing our RAP code; we hope that we can share our learning and we are welcoming your feedback and suggestions on what we have developed so far.</p>
+<p>If you would like more information or have questions on the work we’re currently doing within the CCJ to transform our processes, please email <a href="mailto:crimestatistics@ons.gov.uk" class="email">crimestatistics@ons.gov.uk</a>.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="data-quality-principles.html"><span class="header-section-number">2</span> Data Quality Principles</a></div>
+<div class="next"><a href="address-matching.html"><span class="header-section-number">4</span> Address Matching</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#reproducible-analytical-pipeline-rap"><span class="header-section-number">3</span> Reproducible Analytical Pipeline (RAP)</a></li>
+<li><a class="nav-link" href="#the-problem"><span class="header-section-number">3.1</span> The Problem</a></li>
+<li><a class="nav-link" href="#a-rap-will"><span class="header-section-number">3.2</span> A RAP will:</a></li>
+<li><a class="nav-link" href="#what-rap-does"><span class="header-section-number">3.3</span> What RAP does</a></li>
+<li><a class="nav-link" href="#the-nature-of-reproducible-analytical-pipelines-rap"><span class="header-section-number">3.4</span> The nature of Reproducible Analytical Pipelines (RAP)</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/companieshouse/DARr/blob/master/04-RAP.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/companieshouse/DARr/edit/master/04-RAP.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Companies House Data Quality</strong>" was written by Rob Eva and Lauren Calow. It was last built on 2022-06-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
