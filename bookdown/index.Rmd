@@ -1,6 +1,6 @@
 --- 
 title: "Companies House Data Quality"
-author: "Rob Eva and Lauren Callow"
+author: "Rob Eva and Lauren Calow"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
