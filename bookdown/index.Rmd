@@ -15,7 +15,7 @@ biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# Preface
+# Introduction
 
 ## Making sure our register benefits the public good and wider economy 
 

@@ -11,7 +11,7 @@ fig:nice-fig
 tab:nice-tab
 eq:binom
 thm:tri
-preface
+introduction
 making-sure-our-register-benefits-the-public-good-and-wider-economy
 why-do-we-need-a-data-strategy-and-management-framework
 the-data-quality-project
