@@ -14,23 +14,18 @@ In order to gain further insight on the postcode inaccuracies in Companies House
 
 ## Scores used 
 
-```{r echo=FALSE}
 
-Score <- c(0, 1, 2, 3, 4, 5, 6)
-Definition <- c("No postcode given", 
-         "Postcode given but doesn’t exist in PAF", 
-         "Partial postcode given", 
-         "Postcode matches PAF but given in the incorrect field", 
-         "Full correct postcode given, address doesn't match PAF", 
-         "Full correct postcode given, address partially matches PAF", 
-         "Address and postcode details match PAF")
+Table: (\#tab:unnamed-chunk-1)Postcode Scoring Matrix | Version 1
 
-df <- data.frame(Score, Definition)
-knitr::kable(
-  df, booktabs = TRUE,
-  caption = 'Postcode Scoring Matrix | Version 1'
-)
-```
+| Score|Definition                                                 |
+|-----:|:----------------------------------------------------------|
+|     0|No postcode given                                          |
+|     1|Postcode given but doesn’t exist in PAF                    |
+|     2|Partial postcode given                                     |
+|     3|Postcode matches PAF but given in the incorrect field      |
+|     4|Full correct postcode given, address doesn't match PAF     |
+|     5|Full correct postcode given, address partially matches PAF |
+|     6|Address and postcode details match PAF                     |
 
 ## Data  
 
@@ -170,9 +165,10 @@ _Test 1 - Fuzzy merges on Power BI_
 
 The below snip of the merged table shows an example of an address in the left column that was matched to the addresses using the fuzzy matching in Power BI. Some of the building numbers in those that were matched were incorrect with only one character difference. If the similarity threshold was increased, it would mean the partial match would not pick up on any mis-typed addresses.
 
-```{r echo=FALSE, out.width="50%", fig.cap="Merged Table Example", fig.align = 'left'}
-knitr::include_graphics("./images/snip.png")
-```
+<div class="figure" style="text-align: left">
+<img src="./images/snip.png" alt="Merged Table Example" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-2)Merged Table Example</p>
+</div>
 
 _Test 2 – Fuzzy merges on Power BI_
 
@@ -182,12 +178,14 @@ The same method was used, but by merging the columns in the PAF, not including t
 
 The tables below show the matches from the Glasgow file and PAF with only a few characters difference that were incorrect but this method was showing as a match. As with Test 1, increasing the threshold would reduce the likelihood of matching those with a mistyped address that is still partially correct.
 
-```{r echo=FALSE, out.width="50%", fig.cap="Merged Table Example - RegAddress.AddressLine1", fig.align = 'left'}
-knitr::include_graphics("./images/snip2.png")
-```
-```{r echo=FALSE, out.width="50%", fig.cap="Merged Table Example- RegAddress.AddressLine2", fig.align = 'left'}
-knitr::include_graphics("./images/snip3.png")
-```
+<div class="figure" style="text-align: left">
+<img src="./images/snip2.png" alt="Merged Table Example - RegAddress.AddressLine1" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-3)Merged Table Example - RegAddress.AddressLine1</p>
+</div>
+<div class="figure" style="text-align: left">
+<img src="./images/snip3.png" alt="Merged Table Example- RegAddress.AddressLine2" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-4)Merged Table Example- RegAddress.AddressLine2</p>
+</div>
 
 _Test 3 – Using a range of similarity thresholds on Power BI_
 
@@ -227,9 +225,10 @@ __Comments & Update - 31/03/2022__
 
 1.	The ‘fuzzy matching’ was attempted for Score 5, however, addresses with one digit difference in the building number were brought back as a matched address from the PAF File. 
 
-```{r echo=FALSE, out.width="50%", fig.cap="Fuzzy Matching for Score 5", fig.align = 'left'}
-knitr::include_graphics("./images/snip4.png")
-```
+<div class="figure" style="text-align: left">
+<img src="./images/snip4.png" alt="Fuzzy Matching for Score 5" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-5)Fuzzy Matching for Score 5</p>
+</div>
  
 The Companies House Address Line 1 column was then split by number, building name and street name and repeated on address line 2.
 
