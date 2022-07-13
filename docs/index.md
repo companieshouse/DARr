@@ -1,16 +1,17 @@
 --- 
 title: "Companies House Data Quality"
 author: "Rob Eva and Lauren Calow"
-date: "2022-06-10"
+date: "2022-07-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 url: "https://companieshouse.github.io/DARr/"
 cover-image: "../images/star2.png"
 description: |
-  This is a record of Companies House data quality proposals.
+  This is an introduction to Companies House data quality.
   The HTML output format for this example is bookdown::bs4_book,
-  set in the _output.yml file.
+  set in the _output.yml file. The books is aimed towards data analysts
+  and data engineers in the Data, Analystics and Research department.
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
