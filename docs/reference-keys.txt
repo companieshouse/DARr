@@ -61,7 +61,7 @@ score-6---address-and-postcode-details-match-paf
 power-bi-report-link
 power-bi-dashboard-link
 recommendations
-birmingham-address-matching-1
+glasgow-address-matching
 introduction-and-purpose-1
 scores-used-1
 data-1
@@ -71,7 +71,7 @@ software-1
 caveats-and-limitations-1
 method-1
 cleaning-the-data-1
-separating-the-birmingham-data-1
+separating-the-glasgow-data
 scoring-the-data-1
 score-0---no-postcode-given-1
 score-1---postcode-given-but-doesnt-exist-in-paf-1
