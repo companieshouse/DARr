@@ -98,13 +98,12 @@ Import the data files onto Power BI (desktop).
 ### Score 1 - Postcode given but doesn’t exist in PAF	
 
 1.	Add a new column on the CH File. This can be done in the query editor, or ‘Data’ view. For this report, the column was added in the ‘Data’ view.
-2.	Input the formula PAF Match = CONTAINS('B-2022-03','B-2022-03'[postcode.stripped],'BasicCompanyDataAsOneFile-2022-03-01'[RegAddress.PostCode])
-3.	into the new column. It will return a True for the postcodes in the postcode field that match the PAF and a False for the postcodes that do not match the PAF. The column was labelled ‘PAF Match’.
-4.	Insert another new column and input the formula Length = LEN('BasicCompanyDataAsOneFile-2022-03-01'[RegAddress.PostCode])
-5.	This will count the number of characters in the postcode supplied in the CH file. The column was labelled ‘Postcode Length’. 
-6.	Go to the reports tab and into the ‘Score 1’ sheet. 
-7.	Click onto a visualisation to insert. A pie chart was used for the Glasgow file as there were only two distinct values. The legend and details are the column that contains the “True” or “False”. Values are the count of this field. 
-8.	Go to the filter pane and add a filter for the column ‘Postcode Length’. Tick ‘5’ and ‘6’. This will only bring back the score for the full postcodes given. The blank postcodes have already been scored and the incomplete postcodes are scored separately in the next tab. 
+2.	Input the formula PAF Match = CONTAINS('G-2022-03','G-2022-03'[postcode.stripped],'BasicCompanyDataAsOneFile-2022-03-01'[RegAddress.PostCode]) into the new column. It will return a True for the postcodes in the postcode field that match the PAF and a False for the postcodes that do not match the PAF. The column was labelled ‘PAF Match’.
+3.	Insert another new column and input the formula Length = LEN('BasicCompanyDataAsOneFile-2022-03-01'[RegAddress.PostCode])
+4.	This will count the number of characters in the postcode supplied in the CH file. The column was labelled ‘Postcode Length’. 
+5.	Go to the reports tab and into the ‘Score 1’ sheet. 
+6.	Click onto a visualisation to insert. A pie chart was used for the Glasgow file as there were only two distinct values. The legend and details are the column that contains the “True” or “False”. Values are the count of this field. 
+7.	Go to the filter pane and add a filter for the column ‘Postcode Length’. Tick ‘5’ and ‘6’. This will only bring back the score for the full postcodes given. The blank postcodes have already been scored and the incomplete postcodes are scored separately in the next tab. 
 
 
 ### Score 2 - Partial postcode given	
@@ -117,7 +116,7 @@ Import the data files onto Power BI (desktop).
 
 1.	Go to the Query Editor (click transform data) and load the Companies House data file.
 2.	Insert a conditional column. 
-3.	Insert a condition that RegAddress.AddressLine1 contains ‘B1’,’B2’,’B3’,’B4’,’B5’,’B6’,’B7’ 
+3.	Insert a condition that RegAddress.AddressLine1 contains ‘G1’,’G2’,’G3’,’G4’,’G5’,’G6’,’G7’ 
 4.	This formula will bring back the 0 if there isn’t a postcode in the address line 1 field, or ‘Postcode in address line 1’ if the postcode is in this column.
 5.	Repeat steps 2-4 for RegAddress.AddressLine2 and RegAddress.PostTown
 6.	Filter the ‘PAF Match’ column to ’False’ – the ones which show ‘True’ are scored otherwise.
@@ -150,7 +149,92 @@ In this data set, there were no full, correct postcodes given in the address fie
 
 ### Score 5 - Full correct postcode given, address partially matches PAF	
 
-See Glasgow instructions
+See below section for partial matching methods tested. The method for Score 5 is yet to be completed but Python coding should be attempted next in order to score the data. This can be integrated into Power BI or completed before importing the data to Power BI. 
+
+__Partial matching methods tested__
+
+_Test 1 - Fuzzy merges on Power BI_
+
+1.	Go to Transform data and open the PAF
+2.	Highlight the columns ‘sub_building_name’, ‘building_number’, ‘thoroughfare.name’, ‘thoroughfare.descriptor’. Right click and merge the columns. 
+3.	 On the Home tab, click Merge Queries > Merge Queries as New.
+4.	Select the PAF as the first able and highlight the Merged Addresses column. 
+5.	For the second table, select the Glasgow file and highlight the RegAddress.AddressLine1
+6.	The join type is Left Outer
+7.	The threshold was tested at 0.8, then at 0.7
+
+The below snip of the merged table shows an example of an address in the left column that was matched to the addresses using the fuzzy matching in Power BI. Some of the building numbers in those that were matched were incorrect with only one character difference. If the similarity threshold was increased, it would mean the partial match would not pick up on any mis-typed addresses.
+
+<div class="figure" style="text-align: left">
+<img src="./images/snip.png" alt="Merged Table Example" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-2)Merged Table Example</p>
+</div>
+
+_Test 2 – Fuzzy merges on Power BI_
+
+A second test on the partial matching addresses was done with the numbers removed from the PAF merged addresses column. 
+
+The same method was used, but by merging the columns in the PAF, not including the building number. The similarity threshold and join type were also kept the same (0.7, Left Outer Join). The test was completed on addresses in the Glasgow file RegAddress.AddressLine1 and RegAddress.AddressLine2.
+
+The tables below show the matches from the Glasgow file and PAF with only a few characters difference that were incorrect but this method was showing as a match. As with Test 1, increasing the threshold would reduce the likelihood of matching those with a mistyped address that is still partially correct.
+
+<div class="figure" style="text-align: left">
+<img src="./images/snip2.png" alt="Merged Table Example - RegAddress.AddressLine1" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-3)Merged Table Example - RegAddress.AddressLine1</p>
+</div>
+<div class="figure" style="text-align: left">
+<img src="./images/snip3.png" alt="Merged Table Example- RegAddress.AddressLine2" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-4)Merged Table Example- RegAddress.AddressLine2</p>
+</div>
+
+_Test 3 – Using a range of similarity thresholds on Power BI_
+
+After the above method had been tried, using ranges as below for matching the addresses was considered: 
+
+0.0	– 0.3 – No match
+0.4 – 0.6 – Partial match
+0.7 – 1 – Full match 
+
+Power BI does not allow a range of numbers to be used within the similarity threshold so this method was not used, but documented for awareness.
+
+_Test 4 – List.Containsany function on Power BI_
+
+1.	Create new query
+2.	Type = #shared in the formula bar to show a list of all available queries
+3.	find list.containsany
+4.	For the first table use CH Glasgow address line 1 and for the second, select the merged addresses column from the PAF. 
+5.	This will bring back any values that are matching.
+6.	For this, there were no matching addresses between the files. 
+
+_Test 5 – Python coding_
+
+For integrating Python into Power BI:
+
+1.	Open transformation table 
+2.	Click run Python script
+3.	Enter script into jupyter notebook
+4.	Copy and paste in box in power BI. This should run the script and the output can be used in BI.
+
+Proposed method for using Python for partial matching is outlined in the link below. 
+
+thefuzz/README.rst at master · seatgeek/thefuzz · GitHub
+
+The columns to work with are Address line 1 & 2 in the CH data and the merged column in PAF. 
+
+__Comments & Update - 31/03/2022__
+
+1.	The ‘fuzzy matching’ was attempted for Score 5, however, addresses with one digit difference in the building number were brought back as a matched address from the PAF File. 
+
+<div class="figure" style="text-align: left">
+<img src="./images/snip4.png" alt="Fuzzy Matching for Score 5" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-5)Fuzzy Matching for Score 5</p>
+</div>
+ 
+The Companies House Address Line 1 column was then split by number, building name and street name and repeated on address line 2.
+
+__Comments & Update – April 2022__
+
+1.	Fuzzy matching on Power BI doesn’t work for what we need it to. It was decided we would use Python integrated into Power BI to clean the data and Python coding may work for the partial matching (score 5), and Power BI should be used for the dashboards/visualisations. 
 
 ### Score 6 - Address and postcode details match PAF	
 
@@ -160,9 +244,12 @@ These were scored while scoring postcodes with a ‘4’. Any that did not score
 
 ## Power BI Dashboard Link
 
-## Recommendations
+## Recommendations for next steps – June 2022
 
-1. Define what a good address would look like in Companies House data. One of the issues with current data is that some address details are not in the appropriate field, such as the town being input into ‘Address Line 2’ column. 
-2. If the postcode field in CH data is blank, consider augmenting data by adding a new column to lookup the company address to bring back a postcode that exists in the PAF. Currently CH cannot correct any submitted data such as postcodes but a reference column for a matched address could be added, as outlined in Corporate Transparency and Register Reform White Paper (publishing.service.gov.uk), “If an individual fails to verify, the public register will be annotated to show this. This will enable anyone viewing the register to make their own assessment of the integrity and risk profile of those they are researching”. Could this be extended to full address details to standardise?
-3. Conduct further analysis on the correlation between a Company not supplying a postcode, or not supplying a correct address (one that doesn’t match the PAF) and filing accounts and confirmation statements on time. Preliminary analysis has been completed on this and in the future, the quality of addresses submitted could be used as an indicator for companies that are fraudulent, or would not file accounts and confirmation statements on time. The analysis already completed can be found in the following BI Dashboard: https://app.powerbi.com/groups/me/dashboards/2921b718-7552-40f2-b759-6ae77120bad5?ctid=e6acfe5e-7f2a-455a-9d85-ecf93371f601&pbi_source=linkShare
-4. Utilise other software for analysis. Currently, the PAF is split into sections (Glasgow and Glasgow in this example), so the Companies House data requires filtering to find addresses in those cities, however, not all postcodes with the filters applied are in the correct cities. For example postcodes exist in ‘B7’ but ‘B74’ is not in the PAF as a Glasgow postcodes. Addresses are also input into several different fields, or customers do not state the city, but smaller towns within the city as the main post town. This makes it unfeasible to filter the CH accurately.  
+1.	Define what a ‘good address’ would look like in Companies House data. One of the issues with current data is that some address details are not in the appropriate field, such as the town being input into ‘Address Line 2’ column instead of the Post Town column. Examples of an acceptable address should be documented to compare with those that have been submitted by companies. 
+2.	If the postcode field in CH data is blank, consider augmenting data by adding a new column to lookup the company address to bring back a postcode that exists in the PAF. Currently CH cannot correct any submitted data such as postcodes but a reference column for a matched address could be added, as outlined in Corporate Transparency and Register Reform White Paper (publishing.service.gov.uk), “If an individual fails to verify, the public register will be annotated to show this. This will enable anyone viewing the register to make their own assessment of the integrity and risk profile of those they are researching”. 
+3.	Conduct further analysis on the correlation between a Company not supplying a postcode, or not supplying a correct address (one that doesn’t match the PAF) and filing accounts and confirmation statements on time. Preliminary analysis has been completed on this and in the future, the quality of addresses submitted could be used as an indicator for companies that are fraudulent, or would not file accounts and confirmation statements on time. The analysis already completed can be found in the following BI Dashboard: https://app.powerbi.com/groups/me/dashboards/2921b718-7552-40f2-b759-6ae77120bad5?ctid=e6acfe5e-7f2a-455a-9d85-ecf93371f601&pbi_source=linkShare
+4.	Alter the method used to clean Companies House data, such as removing unnecessary columns and whitespace in the postcode fields. Instead of using Power BI, Python could be a better option. This will also save time when using other data files that will need to be cleaned in the same way because the Python code can be copied and reused for each file. 
+5.	Use Python Fuzzy String matching for the partial matching scores. This can be done through Power BI or before import and the code used for other CH data files for Score 5.
+6.	Continue to find alternative software for analysis, such as AWS, so files don’t need to be saved and imported into software, or split because they are too large to analyse as a full set with our current software. Currently, the PAF is split into sections (Birmingham and Glasgow in this example), so the Companies House data requires filtering to find addresses in those cities, however, not all postcodes with the filters applied are in the correct cities, as it is impossible to capture them all, particularly when some data is missing or in the wrong format. Addresses are also input into several different fields, or customers do not state the city, but smaller towns within the city as the main post town. This makes it unfeasible to filter the CH accurately. This is a temporary issue until we can use software to analyse the full PAF against Companies House data.
+7.	Consider collaborative work with engineers or data scientists within CH who may already have completed similar analysis

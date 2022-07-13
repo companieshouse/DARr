@@ -2,6 +2,10 @@ fig:unnamed-chunk-1
 fig:rap-statement
 fig:rap-overview
 tab:unnamed-chunk-1
+fig:unnamed-chunk-2
+fig:unnamed-chunk-3
+fig:unnamed-chunk-4
+fig:unnamed-chunk-5
 fig:api-fig
 fig:json-fig
 fig:chapi
@@ -82,7 +86,7 @@ score-5---full-correct-postcode-given-address-partially-matches-paf-1
 score-6---address-and-postcode-details-match-paf-1
 power-bi-report-link-1
 power-bi-dashboard-link-1
-recommendations-1
+recommendations-for-next-steps-june-2022
 application-programming-interface-api
 what-is-an-api
 working-with-json-data-in-python
