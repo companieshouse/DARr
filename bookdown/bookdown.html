@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Companies House Data Quality</title>
+
+    <meta name="author" content="Rob Eva and Lauren Calow" />
+  
+   <meta name="description" content="<p>This is an introduction to Companies House data quality.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file. The books is aimed towards data analysts
+and data engineers in the Data, Analystics and Research department.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Companies House Data Quality" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="<a href="https://companieshouse.github.io/DARr/" class="uri">https://companieshouse.github.io/DARr/</a>" />
+  <meta property="og:image" content="<a href="https://companieshouse.github.io/DARr/" class="uri">https://companieshouse.github.io/DARr/</a>/../images/star2.png" />
+  <meta property="og:description" content="<p>This is an introduction to Companies House data quality.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file. The books is aimed towards data analysts
+and data engineers in the Data, Analystics and Research department.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Companies House Data Quality" />
+  
+  <meta name="twitter:description" content="<p>This is an introduction to Companies House data quality.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file. The books is aimed towards data analysts
+and data engineers in the Data, Analystics and Research department.</p>" />
+  <meta name="twitter:image" content="<a href="https://companieshouse.github.io/DARr/" class="uri">https://companieshouse.github.io/DARr/</a>/../images/star2.png" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.3.1/transition.js"></script>
+    <script src="libs/bs3compat-0.3.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.3.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+    <style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+      <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<!--bookdown:title:start-->
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Companies House Data Quality</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<!--bookdown:toc:end-->
+<!--bookdown:body:start-->
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>Placeholder</p>
+<div id="making-sure-our-register-benefits-the-public-good-and-wider-economy" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Making sure our register benefits the public good and wider economy</h2>
+</div>
+<div id="why-do-we-need-a-data-strategy-and-management-framework" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Why do we need a Data Strategy and Management Framework?</h2>
+</div>
+<div id="the-data-quality-project" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> The Data Quality Project</h2>
+<div id="project-background-problem-statement" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Project Background / Problem Statement</h3>
+</div>
+<div id="project-objectives" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Project Objectives</h3>
+<!--chapter:end:index.Rmd-->
+</div>
+</div>
+</div>
+<div id="data-quality-principles" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Data Quality Principles</h1>
+<p>Placeholder</p>
+<div id="commit-to-data-quality" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Commit to data quality</h2>
+<div id="embed-effective-data-management-and-governance" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Embed effective data management and governance</h3>
+</div>
+<div id="build-data-quality-capability" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Build data quality capability</h3>
+</div>
+<div id="focus-on-continuous-improvement" class="section level3" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Focus on continuous improvement</h3>
+</div>
+</div>
+<div id="know-your-users-and-their-needs" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Know your users and their needs</h2>
+<div id="what-is-a-user" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> What is a user?</h3>
+</div>
+<div id="research-your-users-and-understand-their-quality-needs" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Research your users and understand their quality needs</h3>
+</div>
+</div>
+<div id="assess-quality-throughout-the-data-lifecycle" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Assess quality throughout the data lifecycle</h2>
+<div id="what-is-a-data-lifecycle" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> What is a data lifecycle?</h3>
+</div>
+<div id="assess-data-quality-at-all-stages-of-the-lifecycle" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Assess data quality at all stages of the lifecycle</h3>
+</div>
+<div id="communicate-with-users-and-stakeholders-across-the-lifecycle" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Communicate with users and stakeholders across the lifecycle</h3>
+</div>
+</div>
+<div id="communicate-data-quality-clearly-and-effectively" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Communicate data quality clearly and effectively</h2>
+<div id="communicate-data-quality-to-users" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Communicate data quality to users</h3>
+</div>
+<div id="provide-effective-documentation-and-metadata" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Provide effective documentation and metadata</h3>
+</div>
+</div>
+<div id="anticipate-changes-affecting-data-quality" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Anticipate changes affecting data quality</h2>
+<div id="plan-for-the-future" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Plan for the future</h3>
+<!--chapter:end:03-dq-principles.Rmd-->
+</div>
+</div>
+</div>
+<div id="reproducible-analytical-pipeline-rap" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Reproducible Analytical Pipeline (RAP)</h1>
+<p>Placeholder</p>
+<div id="the-problem" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> The Problem</h2>
+</div>
+<div id="a-rap-will" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> A RAP will:</h2>
+</div>
+<div id="what-rap-does" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> What RAP does</h2>
+</div>
+<div id="the-nature-of-reproducible-analytical-pipelines-rap" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> The nature of Reproducible Analytical Pipelines (RAP)</h2>
+<!--chapter:end:04-RAP.Rmd-->
+</div>
+</div>
+<div id="birmingham-address-matching" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Birmingham Address Matching</h1>
+<p>Placeholder</p>
+<div id="introduction-and-purpose" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction and Purpose</h2>
+</div>
+<div id="scores-used" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Scores used</h2>
+</div>
+<div id="data" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Data</h2>
+<div id="companies-house-data" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Companies House Data</h3>
+</div>
+<div id="postcode-address-file" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Postcode Address File</h3>
+</div>
+</div>
+<div id="software" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Software</h2>
+</div>
+<div id="caveats-and-limitations" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Caveats and Limitations</h2>
+</div>
+<div id="method" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Method</h2>
+<div id="cleaning-the-data" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Cleaning the data</h3>
+</div>
+<div id="separating-the-birmingham-data" class="section level3" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Separating the Birmingham data</h3>
+</div>
+</div>
+<div id="scoring-the-data" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Scoring the data</h2>
+<div id="score-0---no-postcode-given" class="section level3" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Score 0 - No Postcode Given</h3>
+</div>
+<div id="score-1---postcode-given-but-doesnt-exist-in-paf" class="section level3" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Score 1 - Postcode given but doesn’t exist in PAF</h3>
+</div>
+<div id="score-2---partial-postcode-given" class="section level3" number="4.7.3">
+<h3><span class="header-section-number">4.7.3</span> Score 2 - Partial postcode given</h3>
+</div>
+<div id="score-3---postcode-matches-paf-but-given-in-the-incorrect-field" class="section level3" number="4.7.4">
+<h3><span class="header-section-number">4.7.4</span> Score 3 - Postcode matches PAF but given in the incorrect field</h3>
+</div>
+<div id="score-4---full-correct-postcode-given-address-doesnt-match-paf" class="section level3" number="4.7.5">
+<h3><span class="header-section-number">4.7.5</span> Score 4 - Full correct postcode given, address doesn’t match PAF</h3>
+</div>
+<div id="score-5---full-correct-postcode-given-address-partially-matches-paf" class="section level3" number="4.7.6">
+<h3><span class="header-section-number">4.7.6</span> Score 5 - Full correct postcode given, address partially matches PAF</h3>
+</div>
+<div id="score-6---address-and-postcode-details-match-paf" class="section level3" number="4.7.7">
+<h3><span class="header-section-number">4.7.7</span> Score 6 - Address and postcode details match PAF</h3>
+</div>
+</div>
+<div id="power-bi-report-link" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Power BI Report Link</h2>
+</div>
+<div id="power-bi-dashboard-link" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Power BI Dashboard Link</h2>
+</div>
+<div id="recommendations" class="section level2" number="4.10">
+<h2><span class="header-section-number">4.10</span> Recommendations</h2>
+<!--chapter:end:05-address_match.Rmd-->
+</div>
+</div>
+<div id="glasgow-address-matching" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Glasgow Address Matching</h1>
+<p>Placeholder</p>
+<div id="introduction-and-purpose-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction and Purpose</h2>
+</div>
+<div id="scores-used-1" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Scores used</h2>
+</div>
+<div id="data-1" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Data</h2>
+<div id="companies-house-data-1" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Companies House Data</h3>
+</div>
+<div id="postcode-address-file-1" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Postcode Address File</h3>
+</div>
+</div>
+<div id="software-1" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Software</h2>
+</div>
+<div id="caveats-and-limitations-1" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Caveats and Limitations</h2>
+</div>
+<div id="method-1" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Method</h2>
+<div id="cleaning-the-data-1" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Cleaning the data</h3>
+</div>
+<div id="separating-the-glasgow-data" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Separating the Glasgow data</h3>
+</div>
+</div>
+<div id="scoring-the-data-1" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Scoring the data</h2>
+<div id="score-0---no-postcode-given-1" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Score 0 - No Postcode Given</h3>
+</div>
+<div id="score-1---postcode-given-but-doesnt-exist-in-paf-1" class="section level3" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Score 1 - Postcode given but doesn’t exist in PAF</h3>
+</div>
+<div id="score-2---partial-postcode-given-1" class="section level3" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Score 2 - Partial postcode given</h3>
+</div>
+<div id="score-3---postcode-matches-paf-but-given-in-the-incorrect-field-1" class="section level3" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> Score 3 - Postcode matches PAF but given in the incorrect field</h3>
+</div>
+<div id="score-4---full-correct-postcode-given-address-doesnt-match-paf-1" class="section level3" number="5.7.5">
+<h3><span class="header-section-number">5.7.5</span> Score 4 - Full correct postcode given, address doesn’t match PAF</h3>
+</div>
+<div id="score-5---full-correct-postcode-given-address-partially-matches-paf-1" class="section level3" number="5.7.6">
+<h3><span class="header-section-number">5.7.6</span> Score 5 - Full correct postcode given, address partially matches PAF</h3>
+</div>
+<div id="score-6---address-and-postcode-details-match-paf-1" class="section level3" number="5.7.7">
+<h3><span class="header-section-number">5.7.7</span> Score 6 - Address and postcode details match PAF</h3>
+</div>
+</div>
+<div id="power-bi-report-link-1" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Power BI Report Link</h2>
+</div>
+<div id="power-bi-dashboard-link-1" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> Power BI Dashboard Link</h2>
+</div>
+<div id="recommendations-1" class="section level2" number="5.10">
+<h2><span class="header-section-number">5.10</span> Recommendations</h2>
+<!--chapter:end:06-GLA_address_match.Rmd-->
+</div>
+</div>
+<div id="application-programming-interface-api" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Application Programming Interface (API)</h1>
+<p>Placeholder</p>
+<div id="what-is-an-api" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> What is an API?</h2>
+</div>
+<div id="working-with-json-data-in-python" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Working with JSON Data in Python</h2>
+</div>
+<div id="companies-house-apis" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Companies House APIs</h2>
+</div>
+<div id="data-quality-augmentation" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Data Quality Augmentation</h2>
+<!--chapter:end:08-api.Rmd-->
+</div>
+</div>
+<div id="bookdown-reference" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Bookdown Reference</h1>
+<p>The following chapters show how Bookdown works for authoring documentation.</p>
+<!--chapter:end:19-bookdown.Rmd-->
+</div>
+<div id="about" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> About</h1>
+<p>Placeholder</p>
+<div id="usage" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Usage</h2>
+</div>
+<div id="render-book" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Render book</h2>
+</div>
+<div id="preview-book" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Preview book</h2>
+<!--chapter:end:20-about.Rmd-->
+</div>
+</div>
+<div id="hello-bookdown" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Hello bookdown</h1>
+<p>All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (<code>#</code>) per .Rmd file.</p>
+<div id="a-section" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> A section</h2>
+<p>All chapter sections start with a second-level (<code>##</code>) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.</p>
+<div id="an-unnumbered-section" class="section level3 unnumbered">
+<h3 class="unnumbered">An unnumbered section</h3>
+<p>Chapters and sections are numbered by default. To un-number a heading, add a <code>{.unnumbered}</code> or the shorter <code>{-}</code> at the end of the heading, like in this section.</p>
+<!--chapter:end:21-intro.Rmd-->
+</div>
+</div>
+</div>
+<div id="cross" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Cross-references</h1>
+<p>Placeholder</p>
+<div id="chapters-and-sub-chapters" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Chapters and sub-chapters</h2>
+</div>
+<div id="captioned-figures-and-tables" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Captioned figures and tables</h2>
+<!--chapter:end:22-cross-refs.Rmd-->
+</div>
+</div>
+<div id="parts" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Parts</h1>
+<p>You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file.</p>
+<p>Add a numbered part: <code># (PART) Act one {-}</code> (followed by <code># A chapter</code>)</p>
+<p>Add an unnumbered part: <code># (PART\*) Act one {-}</code> (followed by <code># A chapter</code>)</p>
+<p>Add an appendix as a special kind of un-numbered part: <code># (APPENDIX) Other stuff {-}</code> (followed by <code># A chapter</code>). Chapters in an appendix are prepended with letters instead of numbers.</p>
+<!--chapter:end:23-parts.Rmd-->
+</div>
+<div id="footnotes-and-citations" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Footnotes and citations</h1>
+<div id="footnotes" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Footnotes</h2>
+<p>Footnotes are put inside the square brackets after a caret <code>^[]</code>. Like this one.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div id="citations" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Citations</h2>
+<p>Reference items in your bibliography file(s) using <code>@key</code>.</p>
+<p>For example, we are using the <strong>bookdown</strong> package<span class="citation"><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></span> (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and <strong>knitr</strong><span class="citation"><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></span> (this citation was added manually in an external file book.bib).
+Note that the <code>.bib</code> files need to be listed in the index.Rmd with the YAML <code>bibliography</code> key.</p>
+<p>The <code>bs4_book</code> theme makes footnotes appear inline when you click on them. In this example book, we added <code>csl: chicago-fullnote-bibliography.csl</code> to the <code>index.Rmd</code> YAML, and include the <code>.csl</code> file. To download a new style, we recommend: <a href="https://www.zotero.org/styles/" class="uri">https://www.zotero.org/styles/</a></p>
+<p>The RStudio Visual Markdown Editor can also make it easier to insert citations: <a href="https://rstudio.github.io/visual-markdown-editing/#/citations" class="uri">https://rstudio.github.io/visual-markdown-editing/#/citations</a></p>
+<!--chapter:end:24-citations.Rmd-->
+</div>
+</div>
+<div id="blocks" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> Blocks</h1>
+<p>Placeholder</p>
+<div id="equations" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Equations</h2>
+</div>
+<div id="theorems-and-proofs" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> Theorems and proofs</h2>
+</div>
+<div id="callout-blocks" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> Callout blocks</h2>
+<!--chapter:end:25-blocks.Rmd-->
+</div>
+</div>
+<div id="sharing-your-book" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Sharing your book</h1>
+<p>Placeholder</p>
+<div id="publishing" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Publishing</h2>
+</div>
+<div id="pages" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> 404 pages</h2>
+</div>
+<div id="metadata-for-sharing" class="section level2" number="14.3">
+<h2><span class="header-section-number">14.3</span> Metadata for sharing</h2>
+<!--chapter:end:26-share.Rmd-->
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1 class="unnumbered">References</h1>
+<!--chapter:end:27-references.Rmd-->
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-bookdown" class="csl-entry">
+Xie, Yihui. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>, 2022. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
+</div>
+<div id="ref-xie2015" class="csl-entry">
+———. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC, 2015. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is a footnote.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Yihui Xie, <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>, 2022, <a href="https://CRAN.R-project.org/package=bookdown" role="doc-biblioref">https://CRAN.R-project.org/package=bookdown</a>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Yihui Xie, <em>Dynamic Documents with <span>R</span> and Knitr</em>, 2nd ed. (Boca Raton, Florida: Chapman; Hall/CRC, 2015), <a href="http://yihui.org/knitr/" role="doc-biblioref">http://yihui.org/knitr/</a>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!--bookdown:body:end-->
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Companies House Data Quality</strong>" was written by Rob Eva and Lauren Calow. It was last built on 2022-07-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+</body>
+
+</html>

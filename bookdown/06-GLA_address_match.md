@@ -14,23 +14,18 @@ In order to gain further insight on the postcode inaccuracies in Companies House
 
 ## Scores used 
 
-```{r echo=FALSE}
 
-Score <- c(0, 1, 2, 3, 4, 5, 6)
-Definition <- c("No postcode given", 
-         "Postcode given but doesn’t exist in PAF", 
-         "Partial postcode given", 
-         "Postcode matches PAF but given in the incorrect field", 
-         "Full correct postcode given, address doesn't match PAF", 
-         "Full correct postcode given, address partially matches PAF", 
-         "Address and postcode details match PAF")
+Table: (\#tab:unnamed-chunk-1)Postcode Scoring Matrix | Version 1
 
-df <- data.frame(Score, Definition)
-knitr::kable(
-  df, booktabs = TRUE,
-  caption = 'Postcode Scoring Matrix | Version 1'
-)
-```
+| Score|Definition                                                 |
+|-----:|:----------------------------------------------------------|
+|     0|No postcode given                                          |
+|     1|Postcode given but doesn’t exist in PAF                    |
+|     2|Partial postcode given                                     |
+|     3|Postcode matches PAF but given in the incorrect field      |
+|     4|Full correct postcode given, address doesn't match PAF     |
+|     5|Full correct postcode given, address partially matches PAF |
+|     6|Address and postcode details match PAF                     |
 
 ## Data  
 
