@@ -88,3 +88,7 @@ what-is-an-api
 working-with-json-data-in-python
 companies-house-apis
 data-quality-augmentation
+data-quality-api
+google-maps-geocoding-output
+results-decode
+address-types-and-address-component-types

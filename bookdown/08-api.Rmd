@@ -49,3 +49,6 @@ knitr::include_graphics("./images/chapi3.jpg")
 ```
 
 Despite appearing to be a good quality company at first glance (the accounts are not overdue, and neither is the confirmation statement), this example has a fictitious address, and 148 comments made about it.
+
+## Data Quality API
+

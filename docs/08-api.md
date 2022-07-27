@@ -54,3 +54,6 @@ A further API function retrieves customer feedback from the Companies House mong
 </div>
 
 Despite appearing to be a good quality company at first glance (the accounts are not overdue, and neither is the confirmation statement), this example has a fictitious address, and 148 comments made about it.
+
+## Data Quality API
+
