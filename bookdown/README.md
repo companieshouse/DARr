@@ -1,10 +1,8 @@
-Welcome! 
+As part of developing a strategy and framework towards the management of data, it is important to capture the context and main drivers that informs Companies House’s strategic goals.  
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+A clear strategic CH goal is to create, maintain and publish a companies’ register built upon relevant and accurate information that supports the UK’s global reputation as a trusted place to do business and a leading exponent of greater corporate transparency. Our data needs to inspire trust and confidence so that we can maximise its value and tackle economic crime through analysis and intelligence. 
 
-This template provides a skeleton file structure that you can edit to create your book. 
-
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
+This document is a collection of data quality workstreams contained within the DARr repository, and was authored using the R Bookdown package and RStudio.
 
 Additional resources:
 
