@@ -43,7 +43,7 @@ With _geocoded addresses_, you can spatially display the address locations and b
 
 Geocoding acts as a crucial part of customer data management. Nearly every organization maintains address information for each customer or client. This is usually in tabular format, containing the customer name, address, buying habits, and any other information you have collected. Geocoding allows you to take your customers' information and create a map of their locations. Using a variety of related applications, you can use this information in many ways, from establishing marketing strategies to targeting specific clusters of customers to producing route maps and directions. The geocoded locations of your customers can be invaluable data.
 
-```{r json-fig, fig.cap='Geolocation Flow © Keiron Noble-Vickrage 2022', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Geolocation Flow.', echo=FALSE}
+```{r geolocation-fig, fig.cap='Geolocation Flow © Keiron Noble-Vickrage 2022', out.width='100%', fig.asp=.75, fig.align='center', fig.alt='Geolocation Flow', echo=FALSE}
 knitr::include_graphics("./images/geolocation-flow.png")
 ```
 

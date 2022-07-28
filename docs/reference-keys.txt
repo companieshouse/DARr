@@ -11,6 +11,7 @@ fig:json-fig
 fig:chapi
 fig:chapi2
 fig:chapi3
+fig:geolocation-fig
 introduction
 making-sure-our-register-benefits-the-public-good-and-wider-economy
 why-do-we-need-a-data-strategy-and-management-framework

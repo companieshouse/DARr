@@ -180,14 +180,14 @@ In order to gain further insight on the postcode inaccuracies in Companies House
 <ol style="list-style-type: decimal">
 <li><p>Open the Companies House Data in the Query editor</p></li>
 <li>
-<p>Add a conditional column and insert the below conditions to populate the condition with the phrase “GLASGOW,” else “Other.”</p>
+<p>Add a conditional column and insert the below conditions to populate the condition with the phrase “GLASGOW”, else “Other”.</p>
 <ul>
-<li>‘RegAddress.PostCode’ beings with ‘G1,’’G2’,’G3’,’G4’,’G5’,’G6’,’G7’ OR</li>
-<li>RegAddress.AddressLine1, RegAddress. AddressLine2, RegAddress.PostTown, RegAddress.County contains ‘Glasgow.’</li>
+<li>‘RegAddress.PostCode’ beings with ‘G1’,’G2’,’G3’,’G4’,’G5’,’G6’,’G7’ OR</li>
+<li>RegAddress.AddressLine1, RegAddress. AddressLine2, RegAddress.PostTown, RegAddress.County contains ‘Glasgow’.</li>
 </ul>
 </li>
 <li><p>Filter any remaining rows out (in this data, there were a few locations on ‘Glasgow Road’ with a different postcode that were not filtered out using the above conditions and some postcodes beginning with be such as B80 which are not in the Glasgow PAF).</p></li>
-<li><p>Use a filter to only select the values in this column that say ‘Glasgow.’</p></li>
+<li><p>Use a filter to only select the values in this column that say ‘Glasgow’.</p></li>
 <li><p>Close and apply the query.</p></li>
 </ol>
 </div>
@@ -205,7 +205,7 @@ In order to gain further insight on the postcode inaccuracies in Companies House
 <li>Input the formula No Postcode = if(‘BasicCompanyDataAsOneFile-2022-03-01’[RegAddress.PostCode]=““,0,1)</li>
 <li>into the new column. It will return a 0 for the postcodes in the postcode field that are blank, and a 1 for the rows in the postcode field which contain a value.</li>
 <li>Go to the reports tab and into the ‘Score 0’ sheet.</li>
-<li>Click onto a visualisation to insert. A pie chart was used for the Glasgow file as there were only two distinct values. The legend and details are the column that contains the “0” or “1.” Values are the count of this field. A table summarizing these values was also added to the sheet.</li>
+<li>Click onto a visualisation to insert. A pie chart was used for the Glasgow file as there were only two distinct values. The legend and details are the column that contains the “0” or “1”. Values are the count of this field. A table summarizing these values was also added to the sheet.</li>
 </ol>
 </div>
 <div id="score-1---postcode-given-but-doesnt-exist-in-paf-1" class="section level3" number="5.7.2">
@@ -214,12 +214,12 @@ In order to gain further insight on the postcode inaccuracies in Companies House
 </h3>
 <ol style="list-style-type: decimal">
 <li>Add a new column on the CH File. This can be done in the query editor, or ‘Data’ view. For this report, the column was added in the ‘Data’ view.</li>
-<li>Input the formula PAF Match = CONTAINS(‘G-2022-03,’‘G-2022-03’[postcode.stripped],‘BasicCompanyDataAsOneFile-2022-03-01’[RegAddress.PostCode]) into the new column. It will return a True for the postcodes in the postcode field that match the PAF and a False for the postcodes that do not match the PAF. The column was labelled ‘PAF Match.’</li>
+<li>Input the formula PAF Match = CONTAINS(‘G-2022-03’,‘G-2022-03’[postcode.stripped],‘BasicCompanyDataAsOneFile-2022-03-01’[RegAddress.PostCode]) into the new column. It will return a True for the postcodes in the postcode field that match the PAF and a False for the postcodes that do not match the PAF. The column was labelled ‘PAF Match’.</li>
 <li>Insert another new column and input the formula Length = LEN(‘BasicCompanyDataAsOneFile-2022-03-01’[RegAddress.PostCode])</li>
-<li>This will count the number of characters in the postcode supplied in the CH file. The column was labelled ‘Postcode Length.’</li>
+<li>This will count the number of characters in the postcode supplied in the CH file. The column was labelled ‘Postcode Length’.</li>
 <li>Go to the reports tab and into the ‘Score 1’ sheet.</li>
-<li>Click onto a visualisation to insert. A pie chart was used for the Glasgow file as there were only two distinct values. The legend and details are the column that contains the “True” or “False.” Values are the count of this field.</li>
-<li>Go to the filter pane and add a filter for the column ‘Postcode Length.’ Tick ‘5’ and ‘6.’ This will only bring back the score for the full postcodes given. The blank postcodes have already been scored and the incomplete postcodes are scored separately in the next tab.</li>
+<li>Click onto a visualisation to insert. A pie chart was used for the Glasgow file as there were only two distinct values. The legend and details are the column that contains the “True” or “False”. Values are the count of this field.</li>
+<li>Go to the filter pane and add a filter for the column ‘Postcode Length’. Tick ‘5’ and ‘6’. This will only bring back the score for the full postcodes given. The blank postcodes have already been scored and the incomplete postcodes are scored separately in the next tab.</li>
 </ol>
 </div>
 <div id="score-2---partial-postcode-given-1" class="section level3" number="5.7.3">
@@ -229,7 +229,7 @@ In order to gain further insight on the postcode inaccuracies in Companies House
 <ol style="list-style-type: decimal">
 <li>Go to the reports tab and into the ‘Score 2’ sheet.</li>
 <li>Click onto a visualisation to insert. A pie chart was used for the Glasgow file. The legend and details field is the Postcode Length Column and Values are the Count of the postcode length field.</li>
-<li>Go to the filter pane and add a filter for the column ‘Postcode Length.’ Untick ‘0,’ ‘5’ and ‘6.’ This will bring back the score for the postcodes that were incomplete and were not blank. Ful and blank postcodes have been scored elsewhere.</li>
+<li>Go to the filter pane and add a filter for the column ‘Postcode Length’. Untick ‘0’, ‘5’ and ‘6’. This will bring back the score for the postcodes that were incomplete and were not blank. Ful and blank postcodes have been scored elsewhere.</li>
 </ol>
 </div>
 <div id="score-3---postcode-matches-paf-but-given-in-the-incorrect-field-1" class="section level3" number="5.7.4">
@@ -239,7 +239,7 @@ In order to gain further insight on the postcode inaccuracies in Companies House
 <ol style="list-style-type: decimal">
 <li>Go to the Query Editor (click transform data) and load the Companies House data file.</li>
 <li>Insert a conditional column.</li>
-<li>Insert a condition that RegAddress.AddressLine1 contains ‘G1,’’G2’,’G3’,’G4’,’G5’,’G6’,’G7’</li>
+<li>Insert a condition that RegAddress.AddressLine1 contains ‘G1’,’G2’,’G3’,’G4’,’G5’,’G6’,’G7’</li>
 <li>This formula will bring back the 0 if there isn’t a postcode in the address line 1 field, or ‘Postcode in address line 1’ if the postcode is in this column.</li>
 <li>Repeat steps 2-4 for RegAddress.AddressLine2 and RegAddress.PostTown</li>
 <li>Filter the ‘PAF Match’ column to ’False’ – the ones which show ‘True’ are scored otherwise.</li>
@@ -267,12 +267,12 @@ In this data set, there were no full, correct postcodes given in the address fie
 <li>Once the column has been created, right click the column, click Transform then Trim. This removes spaces from the beginning and end of the text.</li>
 <li>Close &amp; Apply the Query.</li>
 <li>Open data view and open the Companies House data file</li>
-<li>Add a new column and type in the formula Address Match = CONTAINS(‘B-2022-03,’‘B-2022-03’[Merged],‘BasicCompanyDataAsOneFile-2022-03-01’[Address Line 1])</li>
+<li>Add a new column and type in the formula Address Match = CONTAINS(‘B-2022-03’,‘B-2022-03’[Merged],‘BasicCompanyDataAsOneFile-2022-03-01’[Address Line 1])</li>
 <li>The companies where address line 1 matches the PAF will come back as ‘True’ and the ones that do not match will be ‘False’</li>
 <li>Go to the ‘Score3&amp;5’ report tab and click onto a visualisation to insert.</li>
 <li>The Details is the column that contains the ‘True’ or ‘False’ that was just created and the values are a count of this column.<br>
 </li>
-<li>Go to the Filter column and add a Filter for the ‘PAF Match’ column and untick ‘False.’</li>
+<li>Go to the Filter column and add a Filter for the ‘PAF Match’ column and untick ‘False’.</li>
 <li>The values in this report that are ‘True’ score 5, and those that are ‘False’ score 3.</li>
 </ol>
 </div>
@@ -285,7 +285,7 @@ In this data set, there were no full, correct postcodes given in the address fie
 <p><em>Test 1 - Fuzzy merges on Power BI</em></p>
 <ol style="list-style-type: decimal">
 <li>Go to Transform data and open the PAF</li>
-<li>Highlight the columns ‘sub_building_name,’ ‘building_number,’ ‘thoroughfare.name,’ ‘thoroughfare.descriptor.’ Right click and merge the columns.</li>
+<li>Highlight the columns ‘sub_building_name’, ‘building_number’, ‘thoroughfare.name’, ‘thoroughfare.descriptor’. Right click and merge the columns.</li>
 <li>On the Home tab, click Merge Queries &gt; Merge Queries as New.</li>
 <li>Select the PAF as the first able and highlight the Merged Addresses column.</li>
 <li>For the second table, select the Glasgow file and highlight the RegAddress.AddressLine1</li>
@@ -361,7 +361,7 @@ Figure 5.4: Fuzzy Matching for Score 5
 <h3>
 <span class="header-section-number">5.7.7</span> Score 6 - Address and postcode details match PAF<a class="anchor" aria-label="anchor" href="#score-6---address-and-postcode-details-match-paf-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>These were scored while scoring postcodes with a ‘4.’ Any that did not score 4, were given the score of 5. These were The same conditions in the address line details, but with the PAF Match column filtered to those that were ‘True’ and matched the postcode field in Companies House Data.</p>
+<p>These were scored while scoring postcodes with a ‘4’. Any that did not score 4, were given the score of 5. These were The same conditions in the address line details, but with the PAF Match column filtered to those that were ‘True’ and matched the postcode field in Companies House Data.</p>
 </div>
 </div>
 <div id="power-bi-report-link-1" class="section level2" number="5.8">
@@ -380,7 +380,7 @@ Figure 5.4: Fuzzy Matching for Score 5
 </h2>
 <ol style="list-style-type: decimal">
 <li>Define what a ‘good address’ would look like in Companies House data. One of the issues with current data is that some address details are not in the appropriate field, such as the town being input into ‘Address Line 2’ column instead of the Post Town column. Examples of an acceptable address should be documented to compare with those that have been submitted by companies.</li>
-<li>If the postcode field in CH data is blank, consider augmenting data by adding a new column to lookup the company address to bring back a postcode that exists in the PAF. Currently CH cannot correct any submitted data such as postcodes but a reference column for a matched address could be added, as outlined in Corporate Transparency and Register Reform White Paper (publishing.service.gov.uk), “If an individual fails to verify, the public register will be annotated to show this. This will enable anyone viewing the register to make their own assessment of the integrity and risk profile of those they are researching.”</li>
+<li>If the postcode field in CH data is blank, consider augmenting data by adding a new column to lookup the company address to bring back a postcode that exists in the PAF. Currently CH cannot correct any submitted data such as postcodes but a reference column for a matched address could be added, as outlined in Corporate Transparency and Register Reform White Paper (publishing.service.gov.uk), “If an individual fails to verify, the public register will be annotated to show this. This will enable anyone viewing the register to make their own assessment of the integrity and risk profile of those they are researching”.</li>
 <li>Conduct further analysis on the correlation between a Company not supplying a postcode, or not supplying a correct address (one that doesn’t match the PAF) and filing accounts and confirmation statements on time. Preliminary analysis has been completed on this and in the future, the quality of addresses submitted could be used as an indicator for companies that are fraudulent, or would not file accounts and confirmation statements on time. The analysis already completed can be found in the following BI Dashboard: <a href="https://app.powerbi.com/groups/me/dashboards/2921b718-7552-40f2-b759-6ae77120bad5?ctid=e6acfe5e-7f2a-455a-9d85-ecf93371f601&amp;pbi_source=linkShare" class="uri">https://app.powerbi.com/groups/me/dashboards/2921b718-7552-40f2-b759-6ae77120bad5?ctid=e6acfe5e-7f2a-455a-9d85-ecf93371f601&amp;pbi_source=linkShare</a>
 </li>
 <li>Alter the method used to clean Companies House data, such as removing unnecessary columns and whitespace in the postcode fields. Instead of using Power BI, Python could be a better option. This will also save time when using other data files that will need to be cleaned in the same way because the Python code can be copied and reused for each file.</li>
