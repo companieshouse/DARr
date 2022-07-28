@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Appendix | Companies House Data Quality</title>
 <meta name="author" content="Rob Eva and Lauren Calow">
-<meta name="description" content='6.6 Google Maps Geocoding Output "results": [   {     "address_components": [       {         "long_name": "1600",         "short_name": "1600",         "types": [           "street_number"       ...'>
+<meta name="description" content='7.5 Google Maps Geocoding Output "results": [   {     "address_components": [       {         "long_name": "1600",         "short_name": "1600",         "types": [           "street_number"       ...'>
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
 <meta property="og:title" content="Appendix | Companies House Data Quality">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://companieshouse.github.io/DARr/appendix.html">
 <meta property="og:image" content="https://companieshouse.github.io/DARr/../images/star2.png">
-<meta property="og:description" content='6.6 Google Maps Geocoding Output "results": [   {     "address_components": [       {         "long_name": "1600",         "short_name": "1600",         "types": [           "street_number"       ...'>
+<meta property="og:description" content='7.5 Google Maps Geocoding Output "results": [   {     "address_components": [       {         "long_name": "1600",         "short_name": "1600",         "types": [           "street_number"       ...'>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Appendix | Companies House Data Quality">
-<meta name="twitter:description" content='6.6 Google Maps Geocoding Output "results": [   {     "address_components": [       {         "long_name": "1600",         "short_name": "1600",         "types": [           "street_number"       ...'>
+<meta name="twitter:description" content='7.5 Google Maps Geocoding Output "results": [   {     "address_components": [       {         "long_name": "1600",         "short_name": "1600",         "types": [           "street_number"       ...'>
 <meta name="twitter:image" content="https://companieshouse.github.io/DARr/../images/star2.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -52,6 +52,7 @@
 <li><a class="" href="birmingham-address-matching.html"><span class="header-section-number">4</span> Birmingham Address Matching</a></li>
 <li><a class="" href="glasgow-address-matching.html"><span class="header-section-number">5</span> Glasgow Address Matching</a></li>
 <li><a class="" href="application-programming-interface-api.html"><span class="header-section-number">6</span> Application Programming Interface (API)</a></li>
+<li><a class="" href="python-address-matching.html"><span class="header-section-number">7</span> Python Address Matching</a></li>
 <li><a class="active" href="appendix.html">Appendix</a></li>
 </ul>
 
@@ -63,9 +64,9 @@
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="appendix" class="section level1 unnumbered">
 <h1>Appendix<a class="anchor" aria-label="anchor" href="#appendix"><i class="fas fa-link"></i></a>
 </h1>
-<div id="google-maps-geocoding-output" class="section level2" number="6.6">
+<div id="google-maps-geocoding-output" class="section level2" number="7.5">
 <h2>
-<span class="header-section-number">6.6</span> Google Maps Geocoding Output<a class="anchor" aria-label="anchor" href="#google-maps-geocoding-output"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.5</span> Google Maps Geocoding Output<a class="anchor" aria-label="anchor" href="#google-maps-geocoding-output"><i class="fas fa-link"></i></a>
 </h2>
 <pre><code>"results": [
     {
@@ -155,9 +156,9 @@
 "status": "OK"</code></pre>
 <p>}</p>
 </div>
-<div id="results-decode" class="section level2" number="6.7">
+<div id="results-decode" class="section level2" number="7.6">
 <h2>
-<span class="header-section-number">6.7</span> Results Decode<a class="anchor" aria-label="anchor" href="#results-decode"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.6</span> Results Decode<a class="anchor" aria-label="anchor" href="#results-decode"><i class="fas fa-link"></i></a>
 </h2>
 <p>When the geocoder returns results, it places them within a (JSON) results array. Even if the geocoder returns no results (such as if the address doesn’t exist) it still returns an empty results array. (XML responses consist of zero or more &lt;result&gt; elements.)</p>
 <p>A typical result contains the following fields:</p>
@@ -216,9 +217,9 @@
 <li><p><strong>place_id</strong> is a unique identifier that can be used with other Google APIs. For example, you can use the <strong>place_id</strong> in a Places API request to get details of a local business, such as phone number, opening hours, user reviews, and more. See the place ID overview.</p></li>
 </ul>
 </div>
-<div id="address-types-and-address-component-types" class="section level2" number="6.8">
+<div id="address-types-and-address-component-types" class="section level2" number="7.7">
 <h2>
-<span class="header-section-number">6.8</span> Address types and address component types<a class="anchor" aria-label="anchor" href="#address-types-and-address-component-types"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.7</span> Address types and address component types<a class="anchor" aria-label="anchor" href="#address-types-and-address-component-types"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <strong>types[]</strong> array in the result indicates the <em>address type</em>. Examples of address types include a street address, a country, or a political entity. There is also a <strong>types[]</strong> array in the <strong>address_components[]</strong>, indicating the type of each part of the address. Examples include street number or country. (Below is a full list of types.) Addresses may have multiple types. The types may be considered ‘tags.’ For example, many cities are tagged with the <strong>political</strong> and the <strong>locality</strong> type.</p>
 <p>The following types are supported and returned by the geocoder in both the address type and address component type arrays:</p>
@@ -274,15 +275,15 @@ for mailing addresses in some countries.</p></li>
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="application-programming-interface-api.html"><span class="header-section-number">6</span> Application Programming Interface (API)</a></div>
+<div class="prev"><a href="python-address-matching.html"><span class="header-section-number">7</span> Python Address Matching</a></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#appendix">Appendix</a></li>
-<li><a class="nav-link" href="#google-maps-geocoding-output"><span class="header-section-number">6.6</span> Google Maps Geocoding Output</a></li>
-<li><a class="nav-link" href="#results-decode"><span class="header-section-number">6.7</span> Results Decode</a></li>
-<li><a class="nav-link" href="#address-types-and-address-component-types"><span class="header-section-number">6.8</span> Address types and address component types</a></li>
+<li><a class="nav-link" href="#google-maps-geocoding-output"><span class="header-section-number">7.5</span> Google Maps Geocoding Output</a></li>
+<li><a class="nav-link" href="#results-decode"><span class="header-section-number">7.6</span> Results Decode</a></li>
+<li><a class="nav-link" href="#address-types-and-address-component-types"><span class="header-section-number">7.7</span> Address types and address component types</a></li>
 </ul>
 
       <div class="book-extra">
@@ -300,7 +301,7 @@ for mailing addresses in some countries.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Companies House Data Quality</strong>" was written by Rob Eva and Lauren Calow. It was last built on 2022-07-27.</p>
+    <p>"<strong>Companies House Data Quality</strong>" was written by Rob Eva and Lauren Calow. It was last built on 2022-07-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

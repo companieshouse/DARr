@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 Python Address Matching | Companies House Data Quality</title>
+<meta name="author" content="Rob Eva and Lauren Calow">
+<meta name="description" content="7.1 The Problem with Addresses It’s extremely common for people to make errors when inputting addresses, including formatting and misspelling mistakes. Traditional address matching is able to...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta property="og:title" content="Chapter 7 Python Address Matching | Companies House Data Quality">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://companieshouse.github.io/DARr/python-address-matching.html">
+<meta property="og:image" content="https://companieshouse.github.io/DARr/../images/star2.png">
+<meta property="og:description" content="7.1 The Problem with Addresses It’s extremely common for people to make errors when inputting addresses, including formatting and misspelling mistakes. Traditional address matching is able to...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 Python Address Matching | Companies House Data Quality">
+<meta name="twitter:description" content="7.1 The Problem with Addresses It’s extremely common for people to make errors when inputting addresses, including formatting and misspelling mistakes. Traditional address matching is able to...">
+<meta name="twitter:image" content="https://companieshouse.github.io/DARr/../images/star2.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Companies House Data Quality</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="data-quality-principles.html"><span class="header-section-number">2</span> Data Quality Principles</a></li>
+<li><a class="" href="reproducible-analytical-pipeline-rap.html"><span class="header-section-number">3</span> Reproducible Analytical Pipeline (RAP)</a></li>
+<li><a class="" href="birmingham-address-matching.html"><span class="header-section-number">4</span> Birmingham Address Matching</a></li>
+<li><a class="" href="glasgow-address-matching.html"><span class="header-section-number">5</span> Glasgow Address Matching</a></li>
+<li><a class="" href="application-programming-interface-api.html"><span class="header-section-number">6</span> Application Programming Interface (API)</a></li>
+<li><a class="active" href="python-address-matching.html"><span class="header-section-number">7</span> Python Address Matching</a></li>
+<li><a class="" href="appendix.html">Appendix</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/companieshouse/DARr">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="python-address-matching" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> Python Address Matching<a class="anchor" aria-label="anchor" href="#python-address-matching"><i class="fas fa-link"></i></a>
+</h1>
+<div id="the-problem-with-addresses" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> The Problem with Addresses<a class="anchor" aria-label="anchor" href="#the-problem-with-addresses"><i class="fas fa-link"></i></a>
+</h2>
+<p>It’s extremely common for people to make errors when inputting addresses, including formatting and misspelling mistakes. Traditional address matching is able to determine if an address is an exact match, but it does little to account for different formatting inputs and misspellings. Fuzzy logic address matching allows you to match and correct addresses that have been input incorrectly.</p>
+</div>
+<div id="fuzzy-logic" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Fuzzy Logic<a class="anchor" aria-label="anchor" href="#fuzzy-logic"><i class="fas fa-link"></i></a>
+</h2>
+<p>Fuzzy logic address matching is a system that allows you to determine address accuracy with varying degrees of certainty (rather than simply determining whether an address exactly matches or not). This can be used for address matching and address standardization, enabling addresses to be automatically corrected.</p>
+<p>Fuzzy logic address matching uses advanced algorithms (often AI-powered) to more accurately find and distinguish between addresses. This is ideal for identifying an address, as you can still find the correct address with a slightly incorrect search input.</p>
+<p>Fuzzy logic is a form of determining degrees of value that fall between the standard “true or false” (0 or 1) distinctions present in Boolean logic. With fuzzy logic, you maintain the absolute truth values of 0 and 1, but allow for the use of any value of truth (partial truths) that falls between this. This can then be used to make determinations about the data, as well as flag certain pieces of data for correction.</p>
+</div>
+<div id="fuzzy-logic-in-action" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Fuzzy Logic in action<a class="anchor" aria-label="anchor" href="#fuzzy-logic-in-action"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are a number of issues with traditional address matching, as you need to have your data input exactly, including spelling and formatting. Fuzzy logic solves a number of problems that traditional address matching cannot:</p>
+<ul>
+<li><p><strong>Determine the likelihood of a full match</strong> - Rather than simply determining a full match, predict the likelihood of a full match, allowing you to make better decisions about matching data.
+Address misspellings and small formatting errors - With traditional address matching, an address is either an exact match or not. With fuzzy logic, it determines the likelihood of a match, based on how many characters are different.</p></li>
+<li><p><strong>Difficult to deduplicate addresses</strong> - Without being able to easily pair addresses, it’s more difficult to deduplicate address data and combine your records.</p></li>
+<li><p><strong>Distinguishing unique address information</strong> - While you can program your exact matches to account for small differences in common formatting (i.e. street vs st, lane vs ln, avenue vs ave, etc.), this won’t account for street names and other unique address information that is not standard. Fuzzy logic allows you to set rules for address standardization, correcting address information like street names to match with better accuracy.</p></li>
+<li><p><strong>Impossible to identify phonetic variations</strong> - As simple address matching is looking for an exact match, they are not designed - and unable - to detect phonetic differences in addresses.</p></li>
+</ul>
+</div>
+<div id="geocoding" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Geocoding<a class="anchor" aria-label="anchor" href="#geocoding"><i class="fas fa-link"></i></a>
+</h2>
+<p>Geocoding is the process of transforming a description of a location—such as a pair of coordinates, an address, or a name of a place—to a location on the earth’s surface. You can geocode by entering one location description at a time or by providing many of them at once in a table. The resulting locations are output as geographic features with attributes, which can be used for mapping or spatial analysis.</p>
+<p>You can quickly find various kinds of locations through geocoding. The types of locations that you can search for include points of interest or names from a gazetteer, like mountains, bridges, and stores; coordinates based on latitude and longitude or other reference systems, such as the Military Grid Reference System (MGRS) or the U.S. National Grid system; and addresses, which can come in a variety of styles and formats, including street intersections, house numbers with street names, and postal codes.</p>
+<div id="what-can-geocoing-be-used-for" class="section level3" number="7.4.1">
+<h3>
+<span class="header-section-number">7.4.1</span> What can geocoing be used for<a class="anchor" aria-label="anchor" href="#what-can-geocoing-be-used-for"><i class="fas fa-link"></i></a>
+</h3>
+<p>From simple data analysis to business and customer management to distribution techniques, there is a wide range of applications for which geocoding can be used. With geocoded addresses, you can spatially display the address locations and recognize patterns within the information. This can be done by simply looking at the information or using some of the analysis tools available with ArcGIS. You can also display your address information based on certain parameters, allowing you to further analyze the information. A few of these applications are described in the sections that follow.</p>
+<div id="address-data-analysis" class="section level4" number="7.4.1.1">
+<h4>
+<span class="header-section-number">7.4.1.1</span> Address data analysis<a class="anchor" aria-label="anchor" href="#address-data-analysis"><i class="fas fa-link"></i></a>
+</h4>
+<p>With <em>geocoded addresses</em>, you can spatially display the address locations and begin to recognize patterns within the information. This can be done by simply looking at the information or by using some of the analysis tools available with ArcGIS. You can also display your address information based on certain parameters, allowing you to further analyze the information.</p>
+</div>
+<div id="customer-data-management" class="section level4" number="7.4.1.2">
+<h4>
+<span class="header-section-number">7.4.1.2</span> Customer data management<a class="anchor" aria-label="anchor" href="#customer-data-management"><i class="fas fa-link"></i></a>
+</h4>
+<p>Geocoding acts as a crucial part of customer data management. Nearly every organization maintains address information for each customer or client. This is usually in tabular format, containing the customer name, address, buying habits, and any other information you have collected. Geocoding allows you to take your customers’ information and create a map of their locations. Using a variety of related applications, you can use this information in many ways, from establishing marketing strategies to targeting specific clusters of customers to producing route maps and directions. The geocoded locations of your customers can be invaluable data.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:json-fig"></span>
+<img src="images/geolocation-flow.png" alt="Geolocation Flow." width="80%"><p class="caption">
+Figure 6.2: Geolocation Flow © Keiron Noble-Vickrage 2022
+</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="application-programming-interface-api.html"><span class="header-section-number">6</span> Application Programming Interface (API)</a></div>
+<div class="next"><a href="appendix.html">Appendix</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#python-address-matching"><span class="header-section-number">7</span> Python Address Matching</a></li>
+<li><a class="nav-link" href="#the-problem-with-addresses"><span class="header-section-number">7.1</span> The Problem with Addresses</a></li>
+<li><a class="nav-link" href="#fuzzy-logic"><span class="header-section-number">7.2</span> Fuzzy Logic</a></li>
+<li><a class="nav-link" href="#fuzzy-logic-in-action"><span class="header-section-number">7.3</span> Fuzzy Logic in action</a></li>
+<li>
+<a class="nav-link" href="#geocoding"><span class="header-section-number">7.4</span> Geocoding</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#what-can-geocoing-be-used-for"><span class="header-section-number">7.4.1</span> What can geocoing be used for</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/companieshouse/DARr/blob/master/20-Python_Address_Matching.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/companieshouse/DARr/edit/master/20-Python_Address_Matching.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Companies House Data Quality</strong>" was written by Rob Eva and Lauren Calow. It was last built on 2022-07-28.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
